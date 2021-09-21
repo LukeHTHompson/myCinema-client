@@ -14,10 +14,11 @@ class MainView extends React.Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     axios.get("https://lht-my-cinema.herokuapp.com/movies")
       .then(response => {
         this.setState({
+          // data below is not like the variable movieData I've made, instead it is inherent to axios
           movies: response.data
         });
       })
@@ -35,7 +36,7 @@ class MainView extends React.Component {
   render() {
     const { movies, selectedMovie } = this.state;
 
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+    if (movies.length === 0) return <div className="main-view"></div>;
 
     if (selectedMovie) return <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />;
 
