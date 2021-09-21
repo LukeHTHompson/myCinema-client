@@ -5,10 +5,15 @@ export function LoginView(props) {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    e.preventDefault();
-    console.log(username, password);
+    event.preventDefault();
+    console.log("U: " + username, "P: " + password);
     /* send request for auth */
     props.onLoggedIn(username);
+  };
+
+  const handleRegister = () => {
+    console.log("TEST");
+    props.onRegisterButton(1);
   };
 
   return (
@@ -22,7 +27,10 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>
-        Submit
+        Sign In
+      </button>
+      <button type="button" onClick={handleRegister}>
+        Register
       </button>
     </form>
   );
