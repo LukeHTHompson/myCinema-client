@@ -58,7 +58,7 @@ class MainView extends React.Component {
 
     if (movies.length === 0) return <div className="main-view"></div>;
 
-    if (selectedMovie) return <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />;
+    if (selectedMovie) return <MovieView movieData={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />;
 
     return (
       <div className="main-view">
