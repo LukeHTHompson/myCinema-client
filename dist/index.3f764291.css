@@ -12,14 +12,14 @@ button.btn {
   margin-right: 6px;
   margin-left: 0px;
 }
-div.col-md-3 {
-  padding: 15px;
-}
 button.btn {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-right: 6px;
   margin-left: 0px;
+}
+div.col-md-3 {
+  padding: 15px;
 }
 .my-flix {
   color: steelblue;
