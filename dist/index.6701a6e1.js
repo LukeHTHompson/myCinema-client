@@ -23015,7 +23015,9 @@ class MainView extends _reactDefault.default.Component {
                             lineNumber: 74
                         },
                         __self: this
-                    }, movie._id)
+                    }, {
+                        movie
+                    }._id)
                 })
             )
         }));
@@ -25893,7 +25895,7 @@ function LoginView(props) {
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                controlID: "formUsername",
+                control_id: "formUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 28
@@ -25922,7 +25924,7 @@ function LoginView(props) {
                 ]
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                controlID: "formPassword",
+                control_id: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 33
@@ -25978,8 +25980,8 @@ function LoginView(props) {
 _s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
 LoginView.propTypes = {
-    username: _propTypesDefault.default.string.isRequired,
-    password: _propTypesDefault.default.string.isRequired
+    username: _propTypesDefault.default.string,
+    password: _propTypesDefault.default.string
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
