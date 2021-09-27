@@ -40,13 +40,13 @@ export function LoginView(props) {
       </Button>
 
       <Button variant="primary" type="submit" onClick={handleRegister} >
-        Register
+        Register now
       </Button>
     </Form>
   );
 }
 
-LoginView.PropTypes = {
+LoginView.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
 };
