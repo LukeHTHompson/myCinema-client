@@ -23006,6 +23006,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        id: movie._id,
                         movieData: movie,
                         onMovieClick: (newSelectedMovie)=>{
                             this.setSelectedMovie(newSelectedMovie);
@@ -23015,8 +23016,8 @@ class MainView extends _reactDefault.default.Component {
                             lineNumber: 74
                         },
                         __self: this
-                    }, movie[_id])
-                })
+                    }, movie._id)
+                }, movie._id)
             )
         }));
     }
@@ -23051,7 +23052,7 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 class MovieCard extends _reactDefault.default.Component {
     render() {
-        const { movieData , onMovieClick  } = this.props;
+        const { movieData , onMovieClick , id  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
@@ -23083,13 +23084,25 @@ class MovieCard extends _reactDefault.default.Component {
                             __self: this,
                             children: movieData.Title
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Text, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 17
                             },
                             __self: this,
-                            children: movieData.Description
+                            children: [
+                                movieData.Description,
+                                " ",
+                                /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                                    __source: {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 17
+                                    },
+                                    __self: this
+                                }),
+                                " key: ",
+                                id
+                            ]
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                             onClick: ()=>onMovieClick(movieData)
@@ -25875,7 +25888,6 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState("");
     const [password, setPassword] = _react.useState("");
-    const [test, setTest] = _react.useState("");
     const handleSubmit = ()=>{
         event.preventDefault();
         console.log("U: " + username, "P: " + password);
@@ -25889,7 +25901,7 @@ function LoginView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 28
+            lineNumber: 27
         },
         __self: this,
         children: [
@@ -25897,14 +25909,14 @@ function LoginView(props) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 29
+                    lineNumber: 28
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 30
+                            lineNumber: 29
                         },
                         __self: this,
                         children: "Username:"
@@ -25916,7 +25928,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 31
+                            lineNumber: 30
                         },
                         __self: this
                     })
@@ -25926,14 +25938,14 @@ function LoginView(props) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 34
+                    lineNumber: 33
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 35
+                            lineNumber: 34
                         },
                         __self: this,
                         children: "Password:"
@@ -25945,36 +25957,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 36
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                controlId: "formTest",
-                __source: {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 39
-                },
-                __self: this,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                        __source: {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 40
-                        },
-                        __self: this,
-                        children: "Test:"
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "text",
-                        value: test,
-                        onChange: (e)=>setTest(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 41
+                            lineNumber: 35
                         },
                         __self: this
                     })
@@ -25986,7 +25969,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 44
+                    lineNumber: 38
                 },
                 __self: this,
                 children: "Submit"
@@ -25997,20 +25980,19 @@ function LoginView(props) {
                 onClick: handleRegister,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 48
+                    lineNumber: 42
                 },
                 __self: this,
-                children: "Register"
+                children: "Register now"
             })
         ]
     }));
 }
-_s(LoginView, "0MNU7AqbA6Apma+CjQGdmsEcD1M=");
+_s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
-LoginView.PropTypes = {
+LoginView.propTypes = {
     username: _propTypesDefault.default.string,
-    password: _propTypesDefault.default.string,
-    test: _propTypesDefault.default.string
+    password: _propTypesDefault.default.string
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
