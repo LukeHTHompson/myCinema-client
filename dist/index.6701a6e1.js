@@ -971,7 +971,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","./components/main-view/main-view":"2zHas"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -22729,7 +22729,7 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
     exports.unstable_wrap = unstable_wrap;
 })();
 
-},{}],"jUTZ8":[function() {},{}],"e7a52":[function(require,module,exports) {
+},{}],"e7a52":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -25458,6 +25458,6 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D"}]},["crv2r","XtWYE","dLPEP"], "dLPEP", "parcelRequiree742")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D"}],"jUTZ8":[function() {},{}]},["crv2r","XtWYE","dLPEP"], "dLPEP", "parcelRequiree742")
 
 //# sourceMappingURL=index.6701a6e1.js.map
