@@ -7,14 +7,14 @@ import Card from "react-bootstrap/Card"
 
 export class MovieCard extends React.Component {
   render() {
-    const { movieData, onMovieClick } = this.props;
+    const { movieData, onMovieClick, id } = this.props;
 
     return (
       <Card>
         <Card.Img variant="top" src={movieData.ImagePath} />
         <Card.Body>
           <Card.Title>{movieData.Title}</Card.Title>
-          <Card.Text>{movieData.Description}</Card.Text>
+          <Card.Text>{movieData.Description} <br /> key: {id}</Card.Text>
           <Button onClick={() => onMovieClick(movieData)} variant="link">More Info</Button>
         </Card.Body>
       </Card>
