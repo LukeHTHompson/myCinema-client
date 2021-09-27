@@ -1,7 +1,9 @@
 .card {
   margin-top: 15px;
 }
-
+div.movie-poster {
+  align-content: center;
+}
 button.btn {
   margin-top: 6px;
   margin-bottom: 6px;
