@@ -8,7 +8,6 @@ import Button from "react-bootstrap/Button";
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [test, setTest] = useState("");
 
   const handleSubmit = () => {
     event.preventDefault();
@@ -36,11 +35,6 @@ export function LoginView(props) {
         <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
 
-      <Form.Group controlId="formTest">
-        <Form.Label>Test:</Form.Label>
-        <Form.Control type="text" value={test} onChange={e => setTest(e.target.value)} />
-      </Form.Group>
-
       <Button variant="primary" type="submit" onClick={handleSubmit} >
         Submit
       </Button>
@@ -55,5 +49,4 @@ export function LoginView(props) {
 LoginView.PropTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
-  test: PropTypes.string
 };
