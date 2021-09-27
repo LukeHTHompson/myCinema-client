@@ -25,12 +25,12 @@ export function LoginView(props) {
   return (
 
     <Form>
-      <Form.Group controlID="formUsername">
+      <Form.Group control_id="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </Form.Group>
 
-      <Form.Group controlID="formPassword">
+      <Form.Group control_id="formPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
@@ -47,6 +47,6 @@ export function LoginView(props) {
 }
 
 LoginView.propTypes = {
-  username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  username: PropTypes.string,
+  password: PropTypes.string
 };
