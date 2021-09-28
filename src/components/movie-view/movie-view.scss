@@ -3,3 +3,34 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+.movie-view-info-top {
+  text-align: center;
+}
+
+.movie-title {
+  font-weight:700;
+  font-size: 24pt;
+}
+
+.movie-view-poster{
+  border: 2px solid grey;
+  max-height: 500px;
+}
+
+.movie-view-info-bottom {
+  text-align:center;
+}
+
+.movie-view-back {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.movie-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+}
+

@@ -1,3 +1,32 @@
 div.col-md-3 {
   padding: 15px;
 }
+
+.main-header {
+  margin: 16px;
+  text-align: left;
+  font-size: 70px;
+}
+
+.logout {
+  margin: 6px;
+}
+
+.logout-col {
+  text-align: right;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.container {
+  background-color: lightgreen;
+  border-radius: 20px;
+  border: 5px solid black;
+}
+
+.app-container {
+  background-color: lightblue;
+  min-height: 100vh;
+}
