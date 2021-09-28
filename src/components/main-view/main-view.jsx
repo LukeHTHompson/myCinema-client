@@ -62,20 +62,31 @@ class MainView extends React.Component {
     // if (movies.length === 0) return <div className="main-view"></div>;
 
     return (
-      <Row className="main-view justify-content-md-center">
-        {selectedMovie
-          ? (
-            <Col md={8}>
-              <MovieView movieData={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-            </Col>
-          )
-          : movies.map((movie) => (
-            <Col md={3} key={movie._id}>
-              <MovieCard key={movie._id} id={movie._id} movieData={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-            </Col>
-          ))
-        }
-      </Row>
+      <React.Fragment>
+        <Row className="logout-row justify-content-md-right">
+          <Col md={9}>
+            <p className="main-header">Welcome to myCinema</p>
+          </Col>
+          <Col className="logout-col" md={3}>
+            <p>User: {user}</p>
+            <Button className="logout" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+          </Col>
+        </Row>
+        <Row className="main-view justify-content-md-center">
+          {selectedMovie
+            ? (
+              <Col md={8}>
+                <MovieView movieData={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
+            )
+            : movies.map((movie) => (
+              <Col md={3} key={movie._id}>
+                <MovieCard key={movie._id} id={movie._id} movieData={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
+            ))
+          }
+        </Row>
+      </React.Fragment>
     );
   }
 }
