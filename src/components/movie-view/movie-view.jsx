@@ -23,22 +23,38 @@ export class MovieView extends React.Component {
     return (
       <div className="movie-view">
 
-        <div className="movie-poster">
-          <img src={movieData.ImagePath} />
-        </div>
+        {/* <div className="movie-poster">
+          <img className="movie-view-poster" src={movieData.ImagePath} />
+        </div> */}
 
-        <div className="movie-title">
-          <span className="label">Title: </span>
+        <div className="movie-title movie-view-info-top">
+          <span className="label"></span>
           <span className="value">{movieData.Title}</span>
         </div>
 
-        <div className="movie-description">
-          <span className="label">Description: </span>
+        <div className="movie-director movie-view-info-top">
+          <span className="label">Director: </span>
+          <span className="value">{movieData.Director.Name}</span>
+        </div>
+
+        <div className="movie-genre movie-view-info-top">
+          <span className="label">Genre: </span>
+          <span className="value">{movieData.Genre.Name}</span>
+        </div>
+
+        <div className="movie-poster">
+          <img className="movie-view-poster" src={movieData.ImagePath} />
+        </div>
+
+        <br />
+        <div className="movie-description movie-view-info-bottom">
+          <span className="label"></span>
           <span className="value">{movieData.Description}</span>
         </div>
 
-        <Button variant="primary" type="button" onClick={() => { onBackClick(null); }}>Back</Button>
-
+        <div className="movie-view-back  movie-view-info-bottom">
+          <Button className="movie-view-back" variant="primary" type="button" onClick={() => { onBackClick(null); }}>Back</Button>
+        </div>
       </div >
     );
   }
