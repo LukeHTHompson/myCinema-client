@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import './login-view.scss';
 
 import Form from "react-bootstrap/Form";
@@ -9,11 +10,21 @@ export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("U: " + username, "P: " + password);
     /* send request for auth */
-    props.onLoggedIn(username);
+    axios.post("https://lht-my-cinema.herokuapp.com/login", {
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log("No Matching User")
+      })
   };
 
   const handleRegister = (e) => {
