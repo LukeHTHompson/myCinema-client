@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import './movie-view.scss';
 
+import Button from "react-bootstrap/Button";
 export class MovieView extends React.Component {
 
   // keypressCallback(event) {
@@ -36,7 +37,7 @@ export class MovieView extends React.Component {
           <span className="value">{movieData.Description}</span>
         </div>
 
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button variant="primary" type="button" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div >
     );
