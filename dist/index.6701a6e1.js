@@ -26939,7 +26939,7 @@ function RegistrationView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                 className: "reg-btn",
-                ariant: "primary",
+                variant: "primary",
                 type: "submit",
                 onClick: handleLogin,
                 __source: {
