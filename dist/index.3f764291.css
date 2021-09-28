@@ -1,18 +1,62 @@
 .card {
   margin-top: 15px;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.card-img-top {
+  max-width: 250px;
+  max-height: 351px;
+  border-bottom: 1px solid grey;
+}
+
+.more-info {
+  position: absolute;
+  left: 8px;
+  bottom: 14px;
 }
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-button.btn {
+
+.movie-view-info-top {
+  text-align: center;
+}
+
+.movie-title {
+  font-weight: 700;
+  font-size: 24pt;
+}
+
+.movie-view-poster {
+  border: 2px solid grey;
+  max-height: 500px;
+}
+
+.movie-view-info-bottom {
+  text-align: center;
+}
+
+.movie-view-back {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.movie-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+}
+button.lgn-btn {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-right: 6px;
   margin-left: 0px;
 }
-button.btn {
+button.reg-btn {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-right: 6px;
@@ -21,7 +65,40 @@ button.btn {
 div.col-md-3 {
   padding: 15px;
 }
+
+.main-header {
+  margin: 16px;
+  text-align: left;
+  font-size: 70px;
+}
+
+.logout {
+  margin: 6px;
+}
+
+.logout-col {
+  text-align: right;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.container {
+  background-color: lightgreen;
+  border-radius: 20px;
+  border: 5px solid black;
+}
+
+.app-container {
+  background-color: lightblue;
+  min-height: 100vh;
+}
 .my-flix {
   color: steelblue;
+}
+
+body {
+  min-height: 100vh;
 }
 /*# sourceMappingURL=index.3f764291.css.map */
