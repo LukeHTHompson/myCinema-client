@@ -8,6 +8,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button"
 
 class MainView extends React.Component {
 
@@ -22,16 +23,13 @@ class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("https://lht-my-cinema.herokuapp.com/movies")
-      .then(response => {
-        this.setState({
-          // data below is not like the variable movieData I've made, instead it is inherent to axios
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem("user")
       });
+      this.getMovies(accessToken);
+    }
   }
 
   setSelectedMovie(newSelectedMovie) {
@@ -40,10 +38,39 @@ class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user
+      user: authData.user.Username
     });
+
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.setState({
+      user: null
+    });
+    // Set selectedMovie = null here if we want a user to log in to the home screen as opposed to the last movie they were viewing.
+  }
+
+  getMovies(token) {
+    axios.get("https://lht-my-cinema.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // assign the result of the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
 
   onRegisterButton(register) {
