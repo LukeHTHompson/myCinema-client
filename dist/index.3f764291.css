@@ -30,9 +30,15 @@ img {
   font-size: 24pt;
 }
 
+button.dir-link, button.genre-link {
+  padding: 0px;
+}
+
 .movie-view-poster {
   border: 2px solid grey;
   max-height: 500px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .movie-view-info-bottom {
@@ -93,6 +99,40 @@ div.col-md-3 {
 .app-container {
   background-color: lightblue;
   min-height: 100vh;
+}
+.director-view-back {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.director-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.director-name {
+  font-weight: 700;
+  font-size: 24pt;
+}
+.genre-view-back {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.genre-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.genre-name {
+  font-weight: 700;
+  font-size: 24pt;
 }
 .my-flix {
   color: steelblue;
