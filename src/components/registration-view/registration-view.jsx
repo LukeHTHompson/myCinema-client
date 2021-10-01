@@ -69,11 +69,11 @@ export function RegistrationView(props) {
       </Form.Group>
 
       <Button className="reg-btn" variant="primary" type="submit" onClick={handleCreateUser} >
-        Create Account
+        Create Account (FAKE)
       </Button>
 
       <Button className="reg-btn" variant="primary" type="submit" onClick={handleLogin} >
-        Login Existing Account
+        Back
       </Button>
     </Form>
   );
