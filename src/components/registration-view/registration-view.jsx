@@ -12,7 +12,7 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleCreateUser = () => {
+  const handleCreateUser = (e) => {
     // Insert logic here to verify appropriate info was passed to the form, only continue call after this is confirmed, otherwise quit
     e.preventDefault();
     console.log("U: " + username)
@@ -41,7 +41,8 @@ export function RegistrationView(props) {
     props.onRegisterButton(0);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault()
     props.onRegisterButton(0);
   }
 
