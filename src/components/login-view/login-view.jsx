@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import './login-view.scss';
 
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -49,8 +50,12 @@ export function LoginView(props) {
         Submit
       </Button>
 
+      {/* <Link to={`/register`}>
+        <Button className="lgn-btn" variant="link">Register</Button>
+      </Link> */}
+
       <Button className="lgn-btn" variant="primary" type="submit" onClick={handleRegister} >
-        Register now
+        Register now (FAKE)
       </Button>
     </Form>
   );
