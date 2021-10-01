@@ -2,20 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import './movie-view.scss';
 
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 export class MovieView extends React.Component {
-
-  // keypressCallback(event) {
-  //   console.log(event.key);
-  // }
-
-  // componentDidMount() {
-  //   document.addEventListener("keypress", this.keypressCallback);
-  // }
-
-  // componentWillUnmount() {
-  //   document.removeEventListener("keypress", this.keypressCallback);
-  // }
 
   render() {
     const { movieData, onBackClick } = this.props;
@@ -23,30 +12,27 @@ export class MovieView extends React.Component {
     return (
       <div className="movie-view">
 
-        {/* <div className="movie-poster">
-          <img className="movie-view-poster" src={movieData.ImagePath} />
-        </div> */}
-
         <div className="movie-title movie-view-info-top">
           <span className="label"></span>
           <span className="value">{movieData.Title}</span>
         </div>
 
         <div className="movie-director movie-view-info-top">
-          <span className="label">Director: </span>
-          <span className="value">{movieData.Director.Name}</span>
+          <Link to={`/directors/${movieData.Director.Name}`}>
+            <Button className="dir-link" variant="link">Director: {movieData.Director.Name} </Button>
+          </Link>
         </div>
 
         <div className="movie-genre movie-view-info-top">
-          <span className="label">Genre: </span>
-          <span className="value">{movieData.Genre.Name}</span>
+          <Link className="movie-genre movie-view-info-top" to={`/genres/${movieData.Genre.Name}`}>
+            <Button className="genre-link" variant="link">Genre: {movieData.Genre.Name}</Button>
+          </Link>
         </div>
 
         <div className="movie-poster">
           <img className="movie-view-poster" src={movieData.ImagePath} />
         </div>
 
-        <br />
         <div className="movie-description movie-view-info-bottom">
           <span className="label"></span>
           <span className="value">{movieData.Description}</span>

@@ -13,9 +13,15 @@ img {
   font-size: 24pt;
 }
 
+button.dir-link, button.genre-link {
+  padding: 0px;
+}
+
 .movie-view-poster{
   border: 2px solid grey;
   max-height: 500px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .movie-view-info-bottom {
