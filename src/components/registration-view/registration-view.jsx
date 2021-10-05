@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import './registration-view.scss';
 
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -12,39 +13,45 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleCreateUser = (e) => {
-    // Insert logic here to verify appropriate info was passed to the form, only continue call after this is confirmed, otherwise quit
-    e.preventDefault();
-    console.log("U: " + username)
-    console.log("P: " + password)
-    console.log("E: " + email)
-    console.log("B: " + birthday)
 
-    const body = {
+  const handleCreateUser = (e) => {
+    // Must prevent the form submission because this will reload the page, causing a race condition with our asynchronous functions
+    e.preventDefault();
+
+    /* send request for new account creation */
+    axios.post("https://lht-my-cinema.herokuapp.com/users", {
       Username: username,
       Password: password,
       Email: email,
       Birthday: birthday
-    }
-
-    /* send request for new account creation */
-    // axios.post("https://lht-my-cinema.herokuapp.com/users", body, {
-    //   headers: { "Content-Type": "application/json" }
-    // })
-    //   .then()
-    //   .catch()
-
-    /* send request for auth of new account username/password credentials */
-    // props.onLoggedIn(username);
-
-    // Set State so that we don't see register screen again
-    props.onRegisterButton(0);
+    })
+      .then(response => {
+        const regData = response.data;
+        console.log("Reg");
+        console.log(regData);
+        /* send request for auth of new account username/password credentials */
+        axios.post("https://lht-my-cinema.herokuapp.com/login", {
+          Username: username,
+          Password: password
+        })
+          .then(response => {
+            const loginData = response.data;
+            console.log(loginData);
+            props.onLoggedIn(loginData);
+            window.open("/", "_self")
+          })
+          .catch(e => {
+            console.log("No Matching User");
+            console.log(e);
+            window.open("/", "_self")
+          })
+      })
+      .catch(e => {
+        console.log("Error Registering");
+        console.log(e);
+        window.open("/", "_self")
+      });
   };
-
-  const handleLogin = (e) => {
-    e.preventDefault()
-    props.onRegisterButton(0);
-  }
 
   return (
     <Form>
@@ -69,12 +76,12 @@ export function RegistrationView(props) {
       </Form.Group>
 
       <Button className="reg-btn" variant="primary" type="submit" onClick={handleCreateUser} >
-        Create Account (FAKE)
+        Create Account
       </Button>
 
-      <Button className="reg-btn" variant="primary" type="submit" onClick={handleLogin} >
-        Back
-      </Button>
+      <Link to={`/`}>
+        <Button className="lgn-btn" variant="link">Back</Button>
+      </Link>
     </Form>
   );
 }
