@@ -38,8 +38,12 @@ export class MovieView extends React.Component {
           <span className="value">{movieData.Description}</span>
         </div>
 
-        <div className="movie-view-back  movie-view-info-bottom">
+        <br />
+
+        <div className="movie-view-info-bottom">
           <Button className="movie-view-back" variant="primary" type="button" onClick={() => { onBackClick(null); }}>Back</Button>
+          {/* Add a button here that will take them back to the full movie list homepage */}
+          <Link to={`/`} className="movie-home">Home</Link>
         </div>
       </div >
     );

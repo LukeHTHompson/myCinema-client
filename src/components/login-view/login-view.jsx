@@ -21,6 +21,7 @@ export function LoginView(props) {
     })
       .then(response => {
         const data = response.data;
+        console.log(data);
         props.onLoggedIn(data);
       })
       .catch(e => {
@@ -28,15 +29,10 @@ export function LoginView(props) {
       })
   };
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    props.onRegisterButton(1);
-  };
-
   return (
-
     <Form>
       <Form.Group control_id="formUsername">
+
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </Form.Group>
@@ -50,13 +46,13 @@ export function LoginView(props) {
         Submit
       </Button>
 
-      {/* <Link to={`/register`}>
-        <Button className="lgn-btn" variant="link">Register</Button>
-      </Link> */}
+      <Link to={`/register`}>
+        <Button className="lgn-btn" variant="primary">Register</Button>
+      </Link>
 
-      <Button className="lgn-btn" variant="primary" type="submit" onClick={handleRegister} >
+      {/* <Button className="lgn-btn" variant="primary" type="submit" onClick={handleRegister} >
         Register now (FAKE)
-      </Button>
+      </Button> */}
     </Form>
   );
 }
