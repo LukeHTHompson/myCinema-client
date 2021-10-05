@@ -46,8 +46,13 @@ button.dir-link, button.genre-link {
 }
 
 .movie-view-back {
-  margin-top: 10px;
   text-align: center;
+  margin-right: 10px;
+}
+
+.movie-home {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .movie-view {
@@ -83,6 +88,8 @@ div.col-md-3 {
 }
 
 .logout-col {
+  margin-top: auto;
+  margin-bottom: auto;
   text-align: right;
 }
 
@@ -101,7 +108,6 @@ div.col-md-3 {
   min-height: 100vh;
 }
 .director-view-back {
-  margin-top: 10px;
   text-align: center;
 }
 
@@ -113,13 +119,40 @@ div.col-md-3 {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+}
+
+button.director-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.director-home {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .director-name {
   font-weight: 700;
   font-size: 24pt;
 }
-.genre-view-back {
-  margin-top: 10px;
+ul {
+  list-style-type: none;
   text-align: center;
+  padding: 0px;
+}
+
+.genre-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.genre-home {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .genre-view {
@@ -133,6 +166,23 @@ div.col-md-3 {
 .genre-name {
   font-weight: 700;
   font-size: 24pt;
+}
+.user-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+button.user-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.user-home {
+  text-align: center;
+  vertical-align: middle;
 }
 .my-flix {
   color: steelblue;
