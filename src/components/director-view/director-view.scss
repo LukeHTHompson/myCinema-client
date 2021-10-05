@@ -1,5 +1,4 @@
 .director-view-back {
-  margin-top: 10px;
   text-align: center;
 }
 
@@ -9,6 +8,22 @@
   margin: 15px;
   padding: 10px;
   text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+}
+
+button.director-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.director-home {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .director-name {
