@@ -6,9 +6,29 @@
   text-align: center;
 }
 
-button.user-view-back {
-  text-align: center;
-  margin-right: 10px;
+div.user-view-info {
+  max-width: 50%;
+  margin: auto;
+}
+
+.user-info-label {
+float: left;
+}
+
+.user-info-value {
+float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-view-edit {
+  width: 200px;
+}
+
+.user-view-delete {
+  width: 200px;
 }
 
 .user-home {

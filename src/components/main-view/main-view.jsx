@@ -11,6 +11,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { UserView } from "../user-view/user-view";
+import { UserViewEdit } from "../user-view-edit/user-view-edit";
+
 
 
 import Row from "react-bootstrap/Row";
@@ -150,11 +152,21 @@ class MainView extends React.Component {
             </Col>
           }} />
 
-          <Route path="/users/:user" render={({ match, history }) => {
+          {/* User View */}
+          <Route exact path="/users/:user" render={({ match, history }) => {
             if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return <Col md={8}>
-              <UserView movieList={movies} onBackClick={() => history.goBack()} />
+              <UserView movieList={movies} />
+            </Col>
+          }} />
+
+          {/* User View Edit */}
+          <Route path="/users/:user/edit" render={({ match, history }) => {
+            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+
+            return <Col md={8}>
+              <UserViewEdit movieList={movies} />
             </Col>
           }} />
 
