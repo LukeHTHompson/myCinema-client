@@ -30288,6 +30288,7 @@ function UserViewEdit(props) {
     const handleEditUser = (e)=>{
         // Must prevent the form submission because this will reload the page, causing a race condition with our asynchronous functions
         e.preventDefault();
+        // const usernameStart = localStorage.getItem("user");
         // Convert birthdayClean to the format of birthday in DB: YYYY-MM-DDT00:00:00.000Z
         var cleanDate = new Date(birthdayClean);
         let birthday1 = cleanDate.getUTCFullYear() + "-" + cleanDate.getUTCMonth() + "-" + cleanDate.getUTCDate() + "T00:00:00.000Z";
@@ -30325,7 +30326,7 @@ function UserViewEdit(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         __source: {
             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-            lineNumber: 87
+            lineNumber: 88
         },
         __self: this,
         children: [
@@ -30333,14 +30334,14 @@ function UserViewEdit(props) {
                 control_id: "form-username",
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 88
+                    lineNumber: 89
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 89
+                            lineNumber: 90
                         },
                         __self: this,
                         children: "New Username:"
@@ -30352,7 +30353,7 @@ function UserViewEdit(props) {
                         ,
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 90
+                            lineNumber: 91
                         },
                         __self: this
                     })
@@ -30362,14 +30363,14 @@ function UserViewEdit(props) {
                 control_id: "form-password",
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 93
+                    lineNumber: 94
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 94
+                            lineNumber: 95
                         },
                         __self: this,
                         children: "Confirm Current Password:"
@@ -30381,7 +30382,7 @@ function UserViewEdit(props) {
                         ,
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 95
+                            lineNumber: 96
                         },
                         __self: this
                     })
@@ -30391,14 +30392,14 @@ function UserViewEdit(props) {
                 control_id: "form-email",
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 98
+                    lineNumber: 99
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 99
+                            lineNumber: 100
                         },
                         __self: this,
                         children: "New E-Mail:"
@@ -30410,7 +30411,7 @@ function UserViewEdit(props) {
                         ,
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 100
+                            lineNumber: 101
                         },
                         __self: this
                     })
@@ -30420,14 +30421,14 @@ function UserViewEdit(props) {
                 control_id: "form-date",
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 103
+                    lineNumber: 104
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 104
+                            lineNumber: 105
                         },
                         __self: this,
                         children: "New Birthday:"
@@ -30439,7 +30440,7 @@ function UserViewEdit(props) {
                         ,
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                            lineNumber: 105
+                            lineNumber: 106
                         },
                         __self: this
                     })
@@ -30449,10 +30450,10 @@ function UserViewEdit(props) {
                 className: "reg-btn",
                 variant: "primary",
                 type: "submit",
-                onClick: handleEditUser(),
+                onClick: handleEditUser,
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 109
+                    lineNumber: 110
                 },
                 __self: this,
                 children: "Submit Changes"
@@ -30461,7 +30462,7 @@ function UserViewEdit(props) {
                 to: `/users/${usernameStart}`,
                 __source: {
                     fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                    lineNumber: 113
+                    lineNumber: 114
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -30469,7 +30470,7 @@ function UserViewEdit(props) {
                     variant: "link",
                     __source: {
                         fileName: "src/components/user-view-edit/user-view-edit.jsx",
-                        lineNumber: 114
+                        lineNumber: 115
                     },
                     __self: this,
                     children: "Back"

@@ -40,6 +40,7 @@ export function UserViewEdit(props) {
   const handleEditUser = (e) => {
     // Must prevent the form submission because this will reload the page, causing a race condition with our asynchronous functions
     e.preventDefault();
+    // const usernameStart = localStorage.getItem("user");
 
     // Convert birthdayClean to the format of birthday in DB: YYYY-MM-DDT00:00:00.000Z
     var cleanDate = new Date(birthdayClean)
@@ -106,7 +107,7 @@ export function UserViewEdit(props) {
         {/* <DatePicker select={birthday} onChange={(date) => setBirthday(date)} /> */}
       </Form.Group>
 
-      <Button className="reg-btn" variant="primary" type="submit" onClick={handleEditUser()}>
+      <Button className="reg-btn" variant="primary" type="submit" onClick={handleEditUser}>
         Submit Changes
       </Button>
 
