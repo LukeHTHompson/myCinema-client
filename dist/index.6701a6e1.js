@@ -23234,6 +23234,9 @@ class MainView extends _reactDefault.default.Component {
                                             movieList: movies
                                         }),
                                         "Component showing all favorite movies and ability to unfavorite them + free text search for films to add",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_favMovieView.FavMovieView, {
+                                            movieList: movies
+                                        }),
                                         /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                                                 to: `/`,
@@ -23258,21 +23261,17 @@ class MainView extends _reactDefault.default.Component {
                                         onLoggedIn: (user1)=>this.onLoggedIn(user1)
                                     })
                                 }));
-                                return(/*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 8,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_userViewEdit.UserViewEdit, {
-                                            movieList: movies,
-                                            onLoggedIn: (user1)=>this.onLoggedIn(user1)
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_favMovieView.FavMovieView, {
-                                        })
-                                    ]
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_userViewEdit.UserViewEdit, {
+                                        movieList: movies,
+                                        onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                    })
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 197
+                                lineNumber: 199
                             },
                             __self: this
                         })
@@ -30627,6 +30626,9 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _favMovieViewScss = require("./fav-movie-view.scss");
+var _movieCard = require("../movie-card/movie-card");
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _s = $RefreshSig$();
@@ -30635,7 +30637,7 @@ function FavMovieView(props) {
     const [username, setUsername] = _react.useState(`${localStorage.getItem("user")}`);
     const [favMovies, setFavMovies] = _react.useState([]);
     const token = localStorage.getItem("token");
-    useEffect(()=>{
+    _react.useEffect(()=>{
         // let token = localStorage.getItem("token");
         _axiosDefault.default.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
             headers: {
@@ -30645,6 +30647,7 @@ function FavMovieView(props) {
             console.log(response);
             // assign the results
             setFavMovies(response.data[0].FavoriteMovies);
+            console.log(response.data[0].FavoriteMovies);
             console.log(favMovies);
             console.log(props.movieList);
         }).catch(function(error) {
@@ -30653,28 +30656,14 @@ function FavMovieView(props) {
     }, [
         token
     ]);
-    return favMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(Col, {
-            md: 3,
-            __source: {
-                fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                lineNumber: 31
-            },
-            __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(MovieCard, {
-                movieData: m,
-                movieKey: m._id,
-                addFavMovie: (movie)=>this.addFavMovie(movie)
-                ,
-                removeFavMovie: (movie)=>this.removeFavMovie(movie)
-                ,
-                __source: {
-                    fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                    lineNumber: 32
-                },
-                __self: this
-            }, m._id)
-        }, m._id)
-    );
+    return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        __source: {
+            fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
+            lineNumber: 34
+        },
+        __self: this,
+        children: "MOVIES HERE"
+    }));
 }
 _s(FavMovieView, "s8jjNwkoVXCtzvUhFLcEkheOJ+E=");
 _c = FavMovieView;
@@ -30686,7 +30675,7 @@ $RefreshReg$(_c, "FavMovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","axios":"iYoWk","./fav-movie-view.scss":"ezIQP","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D"}],"ezIQP":[function() {},{}],"jUTZ8":[function() {},{}],"2PRIq":[function(require,module,exports) {
+},{"react":"6TuXu","prop-types":"1tgq3","axios":"iYoWk","./fav-movie-view.scss":"ezIQP","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","react-bootstrap/Col":"fbam0","../movie-card/movie-card":"6EiBJ","react/jsx-runtime":"8xIwr"}],"ezIQP":[function() {},{}],"jUTZ8":[function() {},{}],"2PRIq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");

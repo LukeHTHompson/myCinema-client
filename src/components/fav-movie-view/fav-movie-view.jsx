@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import './fav-movie-view.scss';
+import { MovieCard } from "../movie-card/movie-card";
 
+
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 export function FavMovieView(props) {
@@ -19,6 +22,7 @@ export function FavMovieView(props) {
         console.log(response);
         // assign the results
         setFavMovies(response.data[0].FavoriteMovies);
+        console.log(response.data[0].FavoriteMovies);
         console.log(favMovies);
         console.log(props.movieList);
       })
@@ -27,9 +31,5 @@ export function FavMovieView(props) {
       })
   }, [token])
 
-  return favMovies.map(m => (
-    <Col md={3} key={m._id}>
-      <MovieCard movieData={m} key={m._id} movieKey={m._id} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
-    </Col>
-  ))
+  return <div>MOVIES HERE</div>
 }

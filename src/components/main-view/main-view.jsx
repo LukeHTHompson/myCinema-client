@@ -185,8 +185,10 @@ class MainView extends React.Component {
             if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return <Col md={8} className="user-view-col">
+              {/* We currently lose the props.movieList values on refresh of page */}
               <UserView movieList={movies} />
               Component showing all favorite movies and ability to unfavorite them + free text search for films to add
+              <FavMovieView movieList={movies} />
               <div>
                 <Link to={`/`} className="user-home">Home</Link>
               </div>
@@ -199,7 +201,6 @@ class MainView extends React.Component {
 
             return <Col md={8}>
               <UserViewEdit movieList={movies} onLoggedIn={user => this.onLoggedIn(user)} />
-              <FavMovieView />
             </Col>
           }} />
 
