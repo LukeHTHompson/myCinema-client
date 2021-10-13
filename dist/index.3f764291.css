@@ -10,6 +10,38 @@
   border-bottom: 1px solid grey;
 }
 
+.fav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  left: 0;
+}
+.fav-movie :hover {
+  background-color: darkkhaki;
+}
+
+span.fav-movie, span.unfav-movie {
+  width: 50%;
+}
+
+button.fav-movie, button.unfav-movie {
+  width: 100%;
+}
+
+.unfav-movie {
+  position: absolute;
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+}
+
 .more-info {
   position: absolute;
   left: 8px;
@@ -171,7 +203,7 @@ ul {
   font-weight: 700;
   font-size: 24pt;
 }
-.user-view {
+.user-view-col {
   background: white;
   border: 2px solid black;
   margin: 15px;
@@ -196,17 +228,34 @@ div.user-view-info {
   display: none;
 }
 
-.user-view-edit {
+.user-view-edit-button {
   width: 200px;
 }
 
-.user-view-delete {
+.user-view-delete-button {
   width: 200px;
 }
 
 .user-home {
   text-align: center;
   vertical-align: middle;
+}
+.user-view-edit {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+input.form-control {
+  flex: 1;
+}
+
+.form-label {
+  margin-right: 10px;
+  min-width: 218px;
+  align-content: right;
 }
 
 .my-flix {

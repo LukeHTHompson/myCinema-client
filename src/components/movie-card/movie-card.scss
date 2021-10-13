@@ -10,6 +10,39 @@
   border-bottom: 1px solid grey;
 }
 
+.fav-movie {
+  // position: absolute;
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  left: 0;
+  :hover {
+    background-color: darkkhaki;
+  }
+}
+
+span.fav-movie, span.unfav-movie {
+  width: 50%;
+}
+
+button.fav-movie, button.unfav-movie {
+  width:100%
+}
+
+.unfav-movie {
+  position: absolute;
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display:none;
+}
+
 .more-info {
   position: absolute;
   left: 8px;

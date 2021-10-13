@@ -49,10 +49,6 @@ export function LoginView(props) {
       <Link to={`/register`}>
         <Button className="lgn-btn" variant="primary">Register</Button>
       </Link>
-
-      {/* <Button className="lgn-btn" variant="primary" type="submit" onClick={handleRegister} >
-        Register now (FAKE)
-      </Button> */}
     </Form>
   );
 }

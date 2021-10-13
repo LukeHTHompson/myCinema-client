@@ -12,6 +12,7 @@ import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { UserView } from "../user-view/user-view";
 import { UserViewEdit } from "../user-view-edit/user-view-edit";
+import { FavMovieView } from "../fav-movie-view/fav-movie-view";
 
 
 
@@ -55,6 +56,31 @@ class MainView extends React.Component {
       })
   }
 
+  addFavMovie(movieKey) {
+    axios.post(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+      {},
+      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    )
+      .then(response => {
+        console.log(response.data.FavoriteMovies);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  removeFavMovie(movieKey) {
+    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    )
+      .then(response => {
+        console.log(response.data.FavoriteMovies);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -73,6 +99,8 @@ class MainView extends React.Component {
     this.setState({
       user: null
     });
+    window.open("/", "_self")
+
   }
 
   render() {
@@ -106,7 +134,7 @@ class MainView extends React.Component {
 
             return movies.map(m => (
               <Col md={3} key={m._id}>
-                <MovieCard movieData={m} key={m._id} />
+                <MovieCard movieData={m} key={m._id} movieKey={m._id} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
               </Col>
             ))
           }} />
@@ -156,8 +184,12 @@ class MainView extends React.Component {
           <Route exact path="/users/:user" render={({ match, history }) => {
             if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
-            return <Col md={8}>
+            return <Col md={8} className="user-view-col">
               <UserView movieList={movies} />
+              Component showing all favorite movies and ability to unfavorite them + free text search for films to add
+              <div>
+                <Link to={`/`} className="user-home">Home</Link>
+              </div>
             </Col>
           }} />
 
@@ -166,7 +198,8 @@ class MainView extends React.Component {
             if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return <Col md={8}>
-              <UserViewEdit movieList={movies} />
+              <UserViewEdit movieList={movies} onLoggedIn={user => this.onLoggedIn(user)} />
+              <FavMovieView />
             </Col>
           }} />
 

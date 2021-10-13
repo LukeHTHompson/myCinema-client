@@ -29,6 +29,7 @@ export function RegistrationView(props) {
         const regData = response.data;
         console.log("Reg");
         console.log(regData);
+
         /* send request for auth of new account username/password credentials */
         axios.post("https://lht-my-cinema.herokuapp.com/login", {
           Username: username,

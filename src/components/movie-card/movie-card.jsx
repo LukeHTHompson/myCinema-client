@@ -8,11 +8,19 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 
 export class MovieCard extends React.Component {
+
   render() {
-    const { movieData } = this.props;
+    const { movieData, addFavMovie, removeFavMovie, movieKey } = this.props;
 
     return (
       <Card border="dark">
+        {/* &#10025; */}
+        <span className="fav-movie">
+          <Button className="fav-movie" variant="outline-success" onClick={() => { addFavMovie(movieKey); }}>Favorite</Button>
+        </span>
+        <span className="unfav-movie">
+          <Button className="unfav-movie" variant="outline-danger" onClick={() => { removeFavMovie(movieKey) }}>Unfavorite</Button>
+        </span>
         <Card.Img variant="top" src={movieData.ImagePath} />
         <Card.Body>
           <Card.Title>{movieData.Title} ({movieData.Genre.Name})</Card.Title>
