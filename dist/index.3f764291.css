@@ -257,7 +257,9 @@ input.form-control {
   min-width: 218px;
   align-content: right;
 }
-
+.fav-movie-card {
+  text-align: left;
+}
 .my-flix {
   color: steelblue;
 }

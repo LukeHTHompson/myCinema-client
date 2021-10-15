@@ -23235,7 +23235,12 @@ class MainView extends _reactDefault.default.Component {
                                         }),
                                         "Component showing all favorite movies and ability to unfavorite them + free text search for films to add",
                                         /*#__PURE__*/ _jsxRuntime.jsx(_favMovieView.FavMovieView, {
-                                            movieList: movies
+                                            movieList: movies,
+                                            getMovies: (token)=>this.getMovies(token)
+                                            ,
+                                            addFavMovie: (movie)=>this.addFavMovie(movie)
+                                            ,
+                                            removeFavMovie: (movie)=>this.removeFavMovie(movie)
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
@@ -30043,10 +30048,10 @@ function UserView(props) {
             console.log(favMovies);
             console.log(props.movieList);
             console.log("CLEAR");
-            var date = new Date(response.data[0].Birthday);
+            let date = new Date(response.data[0].Birthday);
             setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear());
         }).catch(function(error) {
-            console.log(error);
+            console.log(error + " test");
         });
     }, [
         token
@@ -30387,7 +30392,7 @@ function UserViewEdit(props) {
             setUsername(response.data[0].Username);
             setEmail(response.data[0].Email);
             // setBirthday(response.data[0].Birthday);
-            var date = new Date(response.data[0].Birthday);
+            let date = new Date(response.data[0].Birthday);
             setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear());
         }).catch(function(error) {
             console.log(error);
@@ -30402,7 +30407,7 @@ function UserViewEdit(props) {
         // const usernameStart = localStorage.getItem("user");
         let token1 = localStorage.getItem("token");
         // Convert birthdayClean to the format of birthday in DB: YYYY-MM-DDT00:00:00.000Z
-        var cleanDate = new Date(birthdayClean);
+        let cleanDate = new Date(birthdayClean);
         let birthday = cleanDate.getUTCFullYear() + "-" + cleanDate.getUTCMonth() + "-" + cleanDate.getUTCDate() + "T00:00:00.000Z";
         /* send request for new account creation */ _axiosDefault.default.put(`https://lht-my-cinema.herokuapp.com/users/${usernameStart}`, {
             Username: username,
@@ -30638,32 +30643,54 @@ function FavMovieView(props) {
     const [favMovies, setFavMovies] = _react.useState([]);
     const token = localStorage.getItem("token");
     _react.useEffect(()=>{
-        // let token = localStorage.getItem("token");
         _axiosDefault.default.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
+            console.log("response");
             console.log(response);
             // assign the results
-            setFavMovies(response.data[0].FavoriteMovies);
+            console.log("favorite movies in response");
             console.log(response.data[0].FavoriteMovies);
+            setFavMovies(response.data[0].FavoriteMovies);
             console.log(favMovies);
+            // let favMovies = response.data[0].FavoriteMovies.map((favoriteId) => {
+            //   return movies.find((movie) => movie._id === favoriteId);
+            // })
+            console.log("full movie list from props");
             console.log(props.movieList);
+            setFavMovies(response.data[0].FavoriteMovies.map((favoriteId)=>{
+                return movies.find((movie)=>movie._id === favoriteId
+                );
+            }));
         }).catch(function(error) {
             console.log("ERROR");
         });
     }, [
-        token
+        favMovies
     ]);
-    return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-        __source: {
-            fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-            lineNumber: 34
-        },
-        __self: this,
-        children: "MOVIES HERE"
-    }));
+    return props.movieList.map((m)=>favMovies.includes(m._id) && /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+            md: 4,
+            className: "fav-movie-card",
+            __source: {
+                fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
+                lineNumber: 43
+            },
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                movieData: m,
+                movieKey: m._id,
+                addFavMovie: props.addFavMovie,
+                removeFavMovie: props.removeFavMovie,
+                __source: {
+                    fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
+                    lineNumber: 44
+                },
+                __self: this
+            }, m._id)
+        }, m._id)
+    );
 }
 _s(FavMovieView, "s8jjNwkoVXCtzvUhFLcEkheOJ+E=");
 _c = FavMovieView;
