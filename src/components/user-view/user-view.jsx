@@ -44,11 +44,11 @@ export function UserView(props) {
         console.log(favMovies);
         console.log(props.movieList);
         console.log("CLEAR")
-        var date = new Date(response.data[0].Birthday)
+        let date = new Date(response.data[0].Birthday)
         setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear())
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error + " test");
       })
   }, [token])
 

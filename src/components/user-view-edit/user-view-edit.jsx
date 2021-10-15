@@ -27,7 +27,7 @@ export function UserViewEdit(props) {
         setUsername(response.data[0].Username);
         setEmail(response.data[0].Email);
         // setBirthday(response.data[0].Birthday);
-        var date = new Date(response.data[0].Birthday)
+        let date = new Date(response.data[0].Birthday)
         setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear())
       })
       .catch(function (error) {
@@ -45,7 +45,7 @@ export function UserViewEdit(props) {
 
 
     // Convert birthdayClean to the format of birthday in DB: YYYY-MM-DDT00:00:00.000Z
-    var cleanDate = new Date(birthdayClean)
+    let cleanDate = new Date(birthdayClean)
     let birthday = cleanDate.getUTCFullYear() + "-" + cleanDate.getUTCMonth() + "-" + cleanDate.getUTCDate() + "T00:00:00.000Z"
 
     /* send request for new account creation */
