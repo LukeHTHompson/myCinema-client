@@ -22961,6 +22961,7 @@ class MainView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             console.log(response.data.FavoriteMovies);
+            return response.data.FavoriteMovies;
         }).catch((error)=>{
             console.log(error);
         });
@@ -22972,6 +22973,7 @@ class MainView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             console.log(response.data.FavoriteMovies);
+            return response.data.FavoriteMovies;
         }).catch((error)=>{
             console.log(error);
         });
@@ -23003,7 +23005,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 108
+                lineNumber: 110
             },
             __self: this
         }));
@@ -23011,7 +23013,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 113
+                lineNumber: 115
             },
             __self: this,
             children: [
@@ -23019,7 +23021,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "logout-row justify-content-md-right",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 115
+                        lineNumber: 117
                     },
                     __self: this,
                     children: [
@@ -23027,14 +23029,14 @@ class MainView extends _reactDefault.default.Component {
                             md: 9,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 116
+                                lineNumber: 118
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("p", {
                                 className: "main-header",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 117
+                                    lineNumber: 119
                                 },
                                 __self: this,
                                 children: "Welcome to myCinema"
@@ -23045,7 +23047,7 @@ class MainView extends _reactDefault.default.Component {
                             md: 3,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 119
+                                lineNumber: 121
                             },
                             __self: this,
                             children: [
@@ -23053,7 +23055,7 @@ class MainView extends _reactDefault.default.Component {
                                     to: `/users/${user}`,
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 120
+                                        lineNumber: 122
                                     },
                                     __self: this,
                                     children: [
@@ -23064,7 +23066,7 @@ class MainView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 121
+                                        lineNumber: 123
                                     },
                                     __self: this
                                 }),
@@ -23075,7 +23077,7 @@ class MainView extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 122
+                                        lineNumber: 124
                                     },
                                     __self: this,
                                     children: "Logout"
@@ -23088,7 +23090,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 127
+                        lineNumber: 129
                     },
                     __self: this,
                     children: [
@@ -23109,6 +23111,7 @@ class MainView extends _reactDefault.default.Component {
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                                             movieData: m,
                                             movieKey: m._id,
+                                            source: "main",
                                             addFavMovie: (movie)=>this.addFavMovie(movie)
                                             ,
                                             removeFavMovie: (movie)=>this.removeFavMovie(movie)
@@ -23118,7 +23121,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 131
+                                lineNumber: 133
                             },
                             __self: this
                         }),
@@ -23136,7 +23139,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 144
+                                lineNumber: 146
                             },
                             __self: this
                         }),
@@ -23159,7 +23162,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 153
+                                lineNumber: 155
                             },
                             __self: this
                         }),
@@ -23186,7 +23189,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 163
+                                lineNumber: 165
                             },
                             __self: this
                         }),
@@ -23213,7 +23216,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 174
+                                lineNumber: 176
                             },
                             __self: this
                         }),
@@ -23226,35 +23229,35 @@ class MainView extends _reactDefault.default.Component {
                                         onLoggedIn: (user1)=>this.onLoggedIn(user1)
                                     })
                                 }));
-                                return(/*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
-                                    md: 8,
-                                    className: "user-view-col",
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_userView.UserView, {
-                                            movieList: movies
-                                        }),
-                                        "Component showing all favorite movies and ability to unfavorite them + free text search for films to add",
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_favMovieView.FavMovieView, {
-                                            movieList: movies,
-                                            getMovies: (token)=>this.getMovies(token)
-                                            ,
-                                            addFavMovie: (movie)=>this.addFavMovie(movie)
-                                            ,
-                                            removeFavMovie: (movie)=>this.removeFavMovie(movie)
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                                to: `/`,
-                                                className: "user-home",
-                                                children: "Home"
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_reactDefault.default.Fragment, {
+                                    children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                        className: "user-view-col",
+                                        children: [
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                                md: 12,
+                                                children: /*#__PURE__*/ _jsxRuntime.jsx(_userView.UserView, {
+                                                    movieList: movies
+                                                })
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                                                className: "user-view-fav-movie-row",
+                                                children: /*#__PURE__*/ _jsxRuntime.jsx(_favMovieView.FavMovieView, {
+                                                    movieList: movies,
+                                                    source: "user-view-fav-movie",
+                                                    getMovies: (token)=>this.getMovies(token)
+                                                    ,
+                                                    addFavMovie: (movie)=>this.addFavMovie(movie)
+                                                    ,
+                                                    removeFavMovie: (movie)=>this.removeFavMovie(movie)
+                                                })
                                             })
-                                        })
-                                    ]
+                                        ]
+                                    })
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 184
+                                lineNumber: 186
                             },
                             __self: this
                         }),
@@ -23276,7 +23279,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 199
+                                lineNumber: 207
                             },
                             __self: this
                         })
@@ -23317,9 +23320,10 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 class MovieCard extends _reactDefault.default.Component {
     render() {
-        const { movieData , addFavMovie , removeFavMovie , movieKey  } = this.props;
+        const { movieData , addFavMovie , removeFavMovie , movieKey , source  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
             border: "dark",
+            className: source,
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 16
@@ -30038,16 +30042,13 @@ function UserView(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            console.log(response);
+            // console.log(response);
             // assign the results
             setUsername(response.data[0].Username);
             setEmail(response.data[0].Email);
             setBirthday(response.data[0].Birthday);
             setFavMovies(response.data[0].FavoriteMovies);
             console.log(response.data[0].Username + " | ", response.data[0].Email + " | ", response.data[0].Birthday);
-            console.log(favMovies);
-            console.log(props.movieList);
-            console.log("CLEAR");
             let date = new Date(response.data[0].Birthday);
             setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear());
         }).catch(function(error) {
@@ -30060,7 +30061,7 @@ function UserView(props) {
         className: "user-view",
         __source: {
             fileName: "src/components/user-view/user-view.jsx",
-            lineNumber: 56
+            lineNumber: 53
         },
         __self: this,
         children: [
@@ -30068,7 +30069,7 @@ function UserView(props) {
                 className: "user-view-top",
                 __source: {
                     fileName: "src/components/user-view/user-view.jsx",
-                    lineNumber: 59
+                    lineNumber: 56
                 },
                 __self: this,
                 children: [
@@ -30076,14 +30077,14 @@ function UserView(props) {
                         className: "user-view-title",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 60
+                            lineNumber: 57
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 61
+                                    lineNumber: 58
                                 },
                                 __self: this,
                                 children: "Profile Information"
@@ -30092,7 +30093,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 61
+                                    lineNumber: 58
                                 },
                                 __self: this
                             })
@@ -30102,7 +30103,7 @@ function UserView(props) {
                         className: "user-view-info",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 63
+                            lineNumber: 60
                         },
                         __self: this,
                         children: [
@@ -30110,7 +30111,7 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 64
+                                    lineNumber: 61
                                 },
                                 __self: this,
                                 children: "Username: "
@@ -30119,7 +30120,7 @@ function UserView(props) {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 64
+                                    lineNumber: 61
                                 },
                                 __self: this,
                                 children: username
@@ -30127,7 +30128,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 64
+                                    lineNumber: 61
                                 },
                                 __self: this
                             }),
@@ -30135,7 +30136,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 64
+                                    lineNumber: 61
                                 },
                                 __self: this
                             }),
@@ -30143,7 +30144,7 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 65
+                                    lineNumber: 62
                                 },
                                 __self: this,
                                 children: "Email: "
@@ -30152,7 +30153,7 @@ function UserView(props) {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 65
+                                    lineNumber: 62
                                 },
                                 __self: this,
                                 children: email
@@ -30160,7 +30161,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 65
+                                    lineNumber: 62
                                 },
                                 __self: this
                             }),
@@ -30168,7 +30169,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 65
+                                    lineNumber: 62
                                 },
                                 __self: this
                             }),
@@ -30176,7 +30177,7 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 63
                                 },
                                 __self: this,
                                 children: "Birthdate: "
@@ -30185,7 +30186,7 @@ function UserView(props) {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 63
                                 },
                                 __self: this,
                                 children: birthdayClean
@@ -30193,7 +30194,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 63
                                 },
                                 __self: this
                             }),
@@ -30201,7 +30202,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 63
                                 },
                                 __self: this
                             }),
@@ -30209,7 +30210,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 63
                                 },
                                 __self: this
                             })
@@ -30219,7 +30220,7 @@ function UserView(props) {
                         className: "user-view-actions",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 69
+                            lineNumber: 66
                         },
                         __self: this,
                         children: [
@@ -30227,7 +30228,7 @@ function UserView(props) {
                                 to: `/users/${username}/edit`,
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 71
+                                    lineNumber: 68
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -30236,7 +30237,7 @@ function UserView(props) {
                                     type: "button",
                                     __source: {
                                         fileName: "src/components/user-view/user-view.jsx",
-                                        lineNumber: 72
+                                        lineNumber: 69
                                     },
                                     __self: this,
                                     children: "Edit Information"
@@ -30245,7 +30246,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 74
+                                    lineNumber: 71
                                 },
                                 __self: this
                             }),
@@ -30255,7 +30256,7 @@ function UserView(props) {
                                 type: "button",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 75
+                                    lineNumber: 72
                                 },
                                 __self: this,
                                 children: "Delete Account"
@@ -30263,7 +30264,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 76
+                                    lineNumber: 73
                                 },
                                 __self: this
                             })
@@ -30273,7 +30274,7 @@ function UserView(props) {
                         className: "user-view-home",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 79
+                            lineNumber: 76
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
@@ -30281,7 +30282,7 @@ function UserView(props) {
                             className: "user-home",
                             __source: {
                                 fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 81
+                                lineNumber: 78
                             },
                             __self: this,
                             children: "Home"
@@ -30290,44 +30291,26 @@ function UserView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 83
+                            lineNumber: 80
                         },
                         __self: this
                     })
                 ]
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "user-view-bottom",
+            /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/components/user-view/user-view.jsx",
-                    lineNumber: 87
+                    lineNumber: 83
                 },
                 __self: this,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                        __source: {
-                            fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 88
-                        },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
-                            __source: {
-                                fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 89
-                            },
-                            __self: this,
-                            children: "Favorite Movies: "
-                        })
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                        className: "user-view-home",
-                        __source: {
-                            fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 92
-                        },
-                        __self: this
-                    })
-                ]
+                children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
+                    __source: {
+                        fileName: "src/components/user-view/user-view.jsx",
+                        lineNumber: 84
+                    },
+                    __self: this,
+                    children: "Favorite Movies: "
+                })
             })
         ]
     }));
@@ -30642,28 +30625,47 @@ function FavMovieView(props) {
     const [username, setUsername] = _react.useState(`${localStorage.getItem("user")}`);
     const [favMovies, setFavMovies] = _react.useState([]);
     const token = localStorage.getItem("token");
+    function addFavMovie(movieKey) {
+        _axiosDefault.default.post(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`, {
+        }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then((response)=>{
+            console.log(response.data.FavoriteMovies);
+            if (favMovies.length !== response.data.FavoriteMovies.length) setFavMovies((prev)=>{
+                return [
+                    ...prev,
+                    movieKey
+                ];
+            });
+        }).catch((error)=>{
+            console.log(error);
+        });
+    }
+    function removeFavMovie(movieKey) {
+        _axiosDefault.default.delete(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then((response)=>{
+            console.log(response.data.FavoriteMovies);
+            if (favMovies.length !== response.data.FavoriteMovies.length) setFavMovies(response.data.FavoriteMovies.filter((prev)=>prev == !movieKey
+            ));
+        }).catch((error)=>{
+            console.log(error);
+        });
+    }
     _react.useEffect(()=>{
         _axiosDefault.default.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            console.log("response");
-            console.log(response);
-            // assign the results
-            console.log("favorite movies in response");
-            console.log(response.data[0].FavoriteMovies);
-            setFavMovies(response.data[0].FavoriteMovies);
-            console.log(favMovies);
-            // let favMovies = response.data[0].FavoriteMovies.map((favoriteId) => {
-            //   return movies.find((movie) => movie._id === favoriteId);
-            // })
-            console.log("full movie list from props");
-            console.log(props.movieList);
-            setFavMovies(response.data[0].FavoriteMovies.map((favoriteId)=>{
-                return movies.find((movie)=>movie._id === favoriteId
-                );
-            }));
+            if (favMovies.length !== response.data[0].FavoriteMovies.length) {
+                setFavMovies(response.data[0].FavoriteMovies);
+                console.log("testing text");
+            }
         }).catch(function(error) {
             console.log("ERROR");
         });
@@ -30675,17 +30677,18 @@ function FavMovieView(props) {
             className: "fav-movie-card",
             __source: {
                 fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                lineNumber: 43
+                lineNumber: 65
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                 movieData: m,
                 movieKey: m._id,
-                addFavMovie: props.addFavMovie,
-                removeFavMovie: props.removeFavMovie,
+                source: "user-view-fav-movie",
+                addFavMovie: addFavMovie,
+                removeFavMovie: removeFavMovie,
                 __source: {
                     fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                    lineNumber: 44
+                    lineNumber: 66
                 },
                 __self: this
             }, m._id)

@@ -45,7 +45,7 @@ button.fav-movie, button.unfav-movie {
 .more-info {
   position: absolute;
   left: 8px;
-  bottom: 14px;
+  bottom: 4px;
 }
 img {
   display: block;
@@ -127,9 +127,6 @@ div.col-md-3 {
 
 .container {
   overflow: hidden;
-}
-
-.container {
   background-color: lightgreen;
   border-radius: 20px;
   border: 5px solid black;
@@ -209,6 +206,8 @@ ul {
   margin: 15px;
   padding: 10px;
   text-align: center;
+  width: 66%;
+  align-content: center;
 }
 
 div.user-view-info {
@@ -238,7 +237,14 @@ div.user-view-info {
 
 .user-home {
   text-align: center;
+  align-content: center;
   vertical-align: middle;
+  margin: auto;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .user-view-edit {
   background: white;
@@ -259,6 +265,12 @@ input.form-control {
 }
 .fav-movie-card {
   text-align: left;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 98%;
 }
 .my-flix {
   color: steelblue;
