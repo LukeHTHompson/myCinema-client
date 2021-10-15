@@ -188,7 +188,7 @@ class MainView extends React.Component {
               {/* We currently lose the props.movieList values on refresh of page */}
               <UserView movieList={movies} />
               Component showing all favorite movies and ability to unfavorite them + free text search for films to add
-              <FavMovieView movieList={movies} />
+              <FavMovieView movieList={movies} getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
               <div>
                 <Link to={`/`} className="user-home">Home</Link>
               </div>

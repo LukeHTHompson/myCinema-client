@@ -14,22 +14,34 @@ export function FavMovieView(props) {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    // let token = localStorage.getItem("token");
     axios.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
+        console.log("response")
         console.log(response);
         // assign the results
-        setFavMovies(response.data[0].FavoriteMovies);
+        console.log("favorite movies in response")
         console.log(response.data[0].FavoriteMovies);
+        setFavMovies(response.data[0].FavoriteMovies);
         console.log(favMovies);
+        // let favMovies = response.data[0].FavoriteMovies.map((favoriteId) => {
+        //   return movies.find((movie) => movie._id === favoriteId);
+        // })
+        console.log("full movie list from props")
         console.log(props.movieList);
+        setFavMovies(response.data[0].FavoriteMovies.map((favoriteId) => {
+          return movies.find((movie) => movie._id === favoriteId);
+        }));
       })
       .catch(function (error) {
         console.log("ERROR");
       })
-  }, [token])
+  }, [favMovies])
 
-  return <div>MOVIES HERE</div>
+  return props.movieList.map(m => (
+    (favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
+      <MovieCard movieData={m} key={m._id} movieKey={m._id} addFavMovie={props.addFavMovie} removeFavMovie={props.removeFavMovie} />
+    </Col>
+  ));
 }
