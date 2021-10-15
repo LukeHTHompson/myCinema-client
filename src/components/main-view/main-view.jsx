@@ -63,6 +63,7 @@ class MainView extends React.Component {
     )
       .then(response => {
         console.log(response.data.FavoriteMovies);
+        return response.data.FavoriteMovies;
       })
       .catch(error => {
         console.log(error);
@@ -75,6 +76,7 @@ class MainView extends React.Component {
     )
       .then(response => {
         console.log(response.data.FavoriteMovies);
+        return response.data.FavoriteMovies;
       })
       .catch(error => {
         console.log(error);
@@ -134,7 +136,7 @@ class MainView extends React.Component {
 
             return movies.map(m => (
               <Col md={3} key={m._id}>
-                <MovieCard movieData={m} key={m._id} movieKey={m._id} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
+                <MovieCard movieData={m} key={m._id} movieKey={m._id} source="main" addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
               </Col>
             ))
           }} />
@@ -184,15 +186,21 @@ class MainView extends React.Component {
           <Route exact path="/users/:user" render={({ match, history }) => {
             if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
-            return <Col md={8} className="user-view-col">
-              {/* We currently lose the props.movieList values on refresh of page */}
-              <UserView movieList={movies} />
-              Component showing all favorite movies and ability to unfavorite them + free text search for films to add
-              <FavMovieView movieList={movies} getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
-              <div>
-                <Link to={`/`} className="user-home">Home</Link>
-              </div>
-            </Col>
+            return (
+              <React.Fragment>
+                <div className="user-view-col">
+                  <Col md={12}>
+                    {/* We currently lose the props.movieList values on refresh of page */}
+                    <UserView movieList={movies} />
+                  </Col>
+
+                  {/* How to get the following view to update and render when clicking favorite/unfavorite and avoid a loop? */}
+                  <Row className="user-view-fav-movie-row">
+                    <FavMovieView movieList={movies} source="user-view-fav-movie" getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
+                  </Row>
+                </div>
+              </React.Fragment>
+            )
           }} />
 
           {/* User View Edit */}
@@ -205,7 +213,7 @@ class MainView extends React.Component {
           }} />
 
         </Row>
-      </Router>
+      </Router >
     );
   }
 }

@@ -10,10 +10,10 @@ import Card from "react-bootstrap/Card"
 export class MovieCard extends React.Component {
 
   render() {
-    const { movieData, addFavMovie, removeFavMovie, movieKey } = this.props;
+    const { movieData, addFavMovie, removeFavMovie, movieKey, source } = this.props;
 
     return (
-      <Card border="dark">
+      <Card border="dark" className={source}>
         {/* &#10025; */}
         <span className="fav-movie">
           <Button className="fav-movie" variant="outline-success" onClick={() => { addFavMovie(movieKey); }}>Favorite</Button>

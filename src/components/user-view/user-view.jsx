@@ -34,16 +34,13 @@ export function UserView(props) {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         // assign the results
         setUsername(response.data[0].Username);
         setEmail(response.data[0].Email);
         setBirthday(response.data[0].Birthday);
         setFavMovies(response.data[0].FavoriteMovies);
         console.log(response.data[0].Username + " | ", response.data[0].Email + " | ", response.data[0].Birthday)
-        console.log(favMovies);
-        console.log(props.movieList);
-        console.log("CLEAR")
         let date = new Date(response.data[0].Birthday)
         setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear())
       })
@@ -83,16 +80,10 @@ export function UserView(props) {
         <br />
       </div>
 
-
-      <div className="user-view-bottom">
-        <div>
-          <h2>Favorite Movies: </h2>
-        </div>
-
-        <div className="user-view-home">
-          {/* Add a button here that will take them back to the full movie list homepage */}
-        </div>
+      <div>
+        <h2>Favorite Movies: </h2>
       </div>
+
 
 
     </div>

@@ -13,35 +13,57 @@ export function FavMovieView(props) {
   const [favMovies, setFavMovies] = useState([])
   const token = localStorage.getItem("token");
 
+  function addFavMovieVar(movieKey) {
+    axios.post(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+      {},
+      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    )
+      .then(response => {
+        console.log(response.data.FavoriteMovies);
+        if (favMovies.length !== response.data.FavoriteMovies.length) {
+          setFavMovies(prev => {
+            return [...prev, movieKey];
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  function removeFavMovieVar(movieKey) {
+    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    )
+      .then(response => {
+        console.log(response.data.FavoriteMovies);
+        if (favMovies.length !== response.data.FavoriteMovies.length) {
+          setFavMovies(response.data.FavoriteMovies.filter(prev => prev == !movieKey))
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   useEffect(() => {
     axios.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        console.log("response")
-        console.log(response);
-        // assign the results
-        console.log("favorite movies in response")
-        console.log(response.data[0].FavoriteMovies);
-        setFavMovies(response.data[0].FavoriteMovies);
-        console.log(favMovies);
-        // let favMovies = response.data[0].FavoriteMovies.map((favoriteId) => {
-        //   return movies.find((movie) => movie._id === favoriteId);
-        // })
-        console.log("full movie list from props")
-        console.log(props.movieList);
-        setFavMovies(response.data[0].FavoriteMovies.map((favoriteId) => {
-          return movies.find((movie) => movie._id === favoriteId);
-        }));
+        if (favMovies.length !== response.data[0].FavoriteMovies.length) {
+          setFavMovies(response.data[0].FavoriteMovies)
+          console.log("testing text");
+        }
       })
       .catch(function (error) {
         console.log("ERROR");
       })
   }, [favMovies])
 
-  return props.movieList.map(m => (
-    (favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
-      <MovieCard movieData={m} key={m._id} movieKey={m._id} addFavMovie={props.addFavMovie} removeFavMovie={props.removeFavMovie} />
+  return props.movieList.map(m => ((
+    favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
+      <MovieCard movieData={m} key={m._id} movieKey={m._id} source="user-view-fav-movie" addFavMovie={addFavMovieVar} removeFavMovie={removeFavMovieVar} />
     </Col>
   ));
 }
