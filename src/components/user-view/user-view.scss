@@ -4,6 +4,8 @@
   margin: 15px;
   padding: 10px;
   text-align: center;
+  width: 66%;
+  align-content: center;
 }
 
 div.user-view-info {
@@ -33,5 +35,12 @@ float: right;
 
 .user-home {
   text-align: center;
+  align-content: center;
   vertical-align: middle;
+  margin: auto;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
