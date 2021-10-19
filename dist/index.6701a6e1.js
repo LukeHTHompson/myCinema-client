@@ -28643,7 +28643,7 @@ function LoginView(props) {
             Password: password
         }).then((response)=>{
             const data = response.data;
-            console.log("hi " + data);
+            console.log(data);
             props.onLoggedIn(data);
         }).catch((e1)=>{
             console.log("No Matching User");
