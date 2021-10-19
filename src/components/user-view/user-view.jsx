@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import { MovieCard } from "../movie-card/movie-card";
+import Modal from "react-bootstrap/Modal";
 
 export function UserView(props) {
 
@@ -16,17 +17,45 @@ export function UserView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
   const [birthdayClean, setBirthdayClean] = useState("");
-  const [favMovies, setFavMovies] = useState([])
+  const [favMovies, setFavMovies] = useState([]);
+  const [show, setShow] = useState(false);
   const token = localStorage.getItem("token");
 
-  // function favMoviesList(favMovies) {
-  //   console.log("hi");
-  //   favMovies.map(m => (
-  //     <Col md={3} key={m._id}>
-  //       <MovieCard movieData={m} key={m._id} />
-  //     </Col>
-  //   ))
-  // }
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Call API endpoint to delete your own account, password validation required
+  const handleDelete = () => {
+    console.log("check localstorage for username to delete");
+    console.log("Call delete account API");
+    axios.post("https://lht-my-cinema.herokuapp.com/login", {
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        console.log(response);
+        axios.delete(`https://lht-my-cinema.herokuapp.com/users/${username}`,
+          { headers: { Authorization: `Bearer ${token}` } })
+          .then(response => {
+            console.log(response);
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            handleClose();
+            window.open("/", "_self");
+          })
+          .catch(error => {
+            console.log(error);
+            console.log("An error prevented your account from being deleted.")
+            handleClose();
+          })
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("Incorrect password. Account deletion prevented.")
+        handleClose();
+      })
+  }
+
 
   useEffect(() => {
     // let token = localStorage.getItem("token");
@@ -69,9 +98,24 @@ export function UserView(props) {
             <Button className="user-view-edit-button" variant="warning" type="button" >Edit Information</Button>
           </Link>
           <br />
-          <Button className="user-view-delete-button" variant="danger" type="button">Delete Account</Button>
+          <Button className="user-view-delete-button" variant="danger" type="button" onClick={handleShow}>Delete Account</Button>
           <br />
         </div>
+
+        <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+          {/* Using closeButton on Modal.Header is not displaying properly, removing for now */}
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">Delete Account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Your password is required to delete this account:
+            <input className="modal-password" type="password" onChange={e => setPassword(e.target.value)}></input>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>Back</Button>
+            <Button variant="danger" onClick={handleDelete}>Delete</Button>
+          </Modal.Footer>
+        </Modal>
 
         <div className="user-view-home">
           {/* Add a button here that will take them back to the full movie list homepage */}
