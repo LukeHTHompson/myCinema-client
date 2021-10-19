@@ -12,6 +12,8 @@ import axios from "axios";
 export function UserViewEdit(props) {
   const [username, setUsername] = useState(`${localStorage.getItem("user")}`);
   const [password, setPassword] = useState("");
+  const [newPassword1, setNewPassword1] = useState("");
+  const [newPassword2, setNewPassword2] = useState("");
   const [email, setEmail] = useState("");
   // const [birthday, setBirthday] = useState("");
   const [birthdayClean, setBirthdayClean] = useState("");
@@ -48,43 +50,64 @@ export function UserViewEdit(props) {
     let cleanDate = new Date(birthdayClean)
     let birthday = cleanDate.getUTCFullYear() + "-" + cleanDate.getUTCMonth() + "-" + cleanDate.getUTCDate() + "T00:00:00.000Z"
 
-    /* send request for new account creation */
-    axios.put(`https://lht-my-cinema.herokuapp.com/users/${usernameStart}`,
-      {
-        Username: username,
-        Email: email,
-        Birthday: birthdayClean
-      },
-      { headers: { Authorization: `Bearer ${token}` } }
-    )
-      .then(response => {
-        console.log(response.data);
-        console.log("Username: " + { username });
-        console.log("Email: " + { email });
-        console.log("Birthday: " + { birthday });
+    /* send request for account info update */
+    // Modify this call and API function so that the new and current passwords are both passed to the API,
+    // then the API looks for a user with both the usernameStart and password
+    // and then from there will update that user with the username and newPassword.
 
-        /* send request for auth of new account username/password credentials */
-        axios.post("https://lht-my-cinema.herokuapp.com/login", {
-          Username: username,
-          Password: password
-        })
-          .then(response => {
-            const loginData = response.data;
-            console.log(loginData);
-            props.onLoggedIn(loginData);
-            window.open(`/`, "_self")
-          })
-          .catch(e => {
-            console.log("No Matching User");
-            console.log(e);
-          })
+
+    axios.post("https://lht-my-cinema.herokuapp.com/login", {
+      Username: usernameStart,
+      Password: password
+    })
+      .then(response => {
+        const loginData = response.data;
+        console.log(loginData);
+        props.onLoggedIn(loginData);
+        if (newPassword1 === newPassword2) {
+          axios.put(`https://lht-my-cinema.herokuapp.com/users/${usernameStart}`,
+            {
+              Username: username,
+              Password: newPassword1,
+              Email: email,
+              Birthday: birthdayClean
+            },
+            { headers: { Authorization: `Bearer ${token}` } }
+          )
+            .then(response => {
+              console.log(response.data);
+              console.log("Username: " + { username });
+              console.log("Email: " + { email });
+              console.log("Birthday: " + { birthday });
+
+              /* send request for auth of new account username/password credentials */
+              axios.post("https://lht-my-cinema.herokuapp.com/login", {
+                Username: username,
+                Password: password
+              })
+                .then(response => {
+                  const loginData = response.data;
+                  console.log(loginData);
+                  props.onLoggedIn(loginData);
+                  window.open(`/`, "_self")
+                })
+                .catch(e => {
+                  console.log("Error Logging in with new credentials");
+                  console.log(e);
+                })
+            })
+            .catch(e => {
+              console.log("Token: " + token);
+              console.log("Error Editing Info");
+              console.log(e);
+              // window.open("/", "_self")
+            });
+        }
       })
       .catch(e => {
-        console.log("Token: " + token);
-        console.log("Error Editing Info");
+        console.log("Incorrect Password");
         console.log(e);
-        // window.open("/", "_self")
-      });
+      })
   };
 
   return (
@@ -95,10 +118,15 @@ export function UserViewEdit(props) {
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </Form.Group>
 
-      <Form.Group className="form-inline" control_id="form-password">
-        <Form.Label>Confirm Current Password:</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <Form.Group className="form-inline" control_id="form-new-password">
+        <Form.Label>New Password:</Form.Label>
+        <Form.Control type="password" value={newPassword1} onChange={e => setNewPassword1(e.target.value)} />
       </Form.Group>
+
+      <Form.Group className="form-inline" control_id="form-new-password-confirm">
+        <Form.Label>Confirm New Password:</Form.Label>
+        <Form.Control type="password" value={newPassword2} onChange={e => setNewPassword2(e.target.value)} />
+      </Form.Group> <br />
 
       <Form.Group className="form-inline" control_id="form-email">
         <Form.Label>New E-Mail:</Form.Label>
@@ -108,7 +136,11 @@ export function UserViewEdit(props) {
       <Form.Group className="form-inline" control_id="form-date">
         <Form.Label>New Birthday:</Form.Label>
         <Form.Control type="text" value={birthdayClean} onChange={e => setBirthdayClean(e.target.value)} />
-        {/* <DatePicker select={birthday} onChange={(date) => setBirthday(date)} /> */}
+      </Form.Group> <br />
+
+      <Form.Group className="form-inline" control_id="form-password">
+        <Form.Label>Confirm Current Password:</Form.Label>
+        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
 
       <Button className="reg-btn" variant="primary" type="submit" onClick={handleEditUser}>
