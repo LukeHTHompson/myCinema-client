@@ -33164,12 +33164,23 @@ function FavMovieView(props) {
     }, [
         favMovies
     ]);
-    return props.movieList.map((m)=>favMovies.includes(m._id) && /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+    // Return placeholder "None" when the user has no currently selected favorite movies
+    if (favMovies.length == 0) return(/*#__PURE__*/ _jsxRuntime.jsx("h5", {
+        className: "no-favs",
+        __source: {
+            fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
+            lineNumber: 66
+        },
+        __self: this,
+        children: "None"
+    }));
+    // When a user does have favorited movies cycle through the full list of movies and only display a movie card for those included on their favMovies list
+    if (favMovies) return props.movieList.map((m)=>favMovies.includes(m._id) && /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
             md: 4,
             className: "fav-movie-card",
             __source: {
                 fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                lineNumber: 65
+                lineNumber: 72
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -33180,7 +33191,7 @@ function FavMovieView(props) {
                 removeFavMovie: removeFavMovieVar,
                 __source: {
                     fileName: "src/components/fav-movie-view/fav-movie-view.jsx",
-                    lineNumber: 66
+                    lineNumber: 73
                 },
                 __self: this
             }, m._id)
