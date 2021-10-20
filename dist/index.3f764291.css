@@ -140,6 +140,12 @@ div.col-md-3 {
 * {
   box-sizing: border-box;
 }
+
+.error-message {
+  color: red;
+  font-size: 9pt;
+  vertical-align: middle;
+}
 .director-view-back {
   text-align: center;
 }
@@ -289,6 +295,20 @@ input.form-control {
   margin-top: 15px;
   margin-bottom: 15px;
   height: 98%;
+}
+
+.user-view-fav-movie-row {
+  text-align: center;
+}
+
+.favs {
+  width: 100%;
+  text-align: center;
+}
+
+.no-favs {
+  width: 100%;
+  text-align: center;
 }
 .my-flix {
   color: steelblue;
