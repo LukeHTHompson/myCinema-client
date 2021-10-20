@@ -10,6 +10,67 @@ import Button from "react-bootstrap/Button";
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [validUsername, setValidUsername] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
+
+  function showErrorMessage(input, message) {
+    let container = input.parentElement;
+
+    // Remove any existing errors
+    let error = container.querySelector(".error-message");
+    if (error) {
+      container.removeChild(error);
+    }
+    // Add in our current error, if any
+    if (message) {
+      let error = document.createElement("div");
+      error.classList.add("error-message");
+      error.innerText = message;
+      container.appendChild(error);
+    }
+  }
+
+  function checkUsername(username) {
+    setUsername(username);
+    let value = username;
+    let regex = new RegExp("^[a-z0-9]+$", "i")
+    const usernameInput = document.querySelector("#formUsername")
+
+    if (!value) {
+      showErrorMessage(usernameInput, "Username is a required field.")
+      setValidUsername(false);
+      return false;
+    }
+    if (!regex.test(username)) {
+      showErrorMessage(usernameInput, "Username may only contain letters and numbers.")
+      setValidUsername(false);
+      return false;
+    }
+    if (value.length < 5) {
+      showErrorMessage(usernameInput, "Username must be at least 5 characters.")
+      setValidUsername(false);
+      return false;
+    }
+    showErrorMessage(usernameInput,)
+    setValidUsername(true);
+    return true;
+  }
+
+  function checkPassword(password) {
+    setPassword(password);
+    let value = password;
+    const passwordInput = document.querySelector("#formPassword")
+
+    if (!value) {
+      showErrorMessage(passwordInput, "Password is a required field.")
+      setValidPassword(false);
+      return false
+    }
+
+    showErrorMessage(passwordInput,)
+    setValidPassword(true);
+    return true;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,24 +86,27 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch(e => {
+        console.log(e.message)
         console.log("No Matching User")
+        const form = document.querySelector("#loginForm")
+        showErrorMessage(form, "Incorrect Username and/or Password")
       })
   };
 
   return (
-    <Form>
+    <Form id="loginForm">
       <Form.Group control_id="formUsername">
 
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        <Form.Control id="formUsername" type="text" value={username} onChange={e => checkUsername(e.target.value)} />
       </Form.Group>
 
       <Form.Group control_id="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Form.Control id="formPassword" type="password" value={password} onChange={e => checkPassword(e.target.value)} />
       </Form.Group>
 
-      <Button className="lgn-btn" variant="primary" type="submit" onClick={handleSubmit} >
+      <Button disabled={!(validUsername && validPassword)} className="lgn-btn" variant="primary" type="submit" onClick={handleSubmit} >
         Submit
       </Button>
 
