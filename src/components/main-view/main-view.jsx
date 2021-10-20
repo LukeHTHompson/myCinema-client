@@ -113,16 +113,16 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        {/* Need a way to hide the User: link and the Logout button in the screens where a user would not be logged in yet. */}
         <Row className="logout-row justify-content-md-right">
           <Col md={9}>
             <p className="main-header">Welcome to myCinema</p>
           </Col>
-          <Col className="logout-col" md={3}>
+          {/* Conditional Rendering here to prevent user and logout buttons from appearing if no user is currently signed in. */}
+          {user && <Col className="logout-col" md={3}>
             <Link to={`/users/${user}`}>User: {user}</Link>
             <br />
             <Button className="logout" onClick={() => { this.onLoggedOut() }}>Logout</Button>
-          </Col>
+          </Col>}
         </Row>
 
         {/* Body Content of the views */}
@@ -194,7 +194,6 @@ class MainView extends React.Component {
                     <UserView movieList={movies} />
                   </Col>
 
-                  {/* How to get the following view to update and render when clicking favorite/unfavorite and avoid a loop? */}
                   <Row className="user-view-fav-movie-row">
                     <FavMovieView movieList={movies} source="user-view-fav-movie" getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
                   </Row>
