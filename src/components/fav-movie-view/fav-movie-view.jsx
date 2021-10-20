@@ -61,9 +61,17 @@ export function FavMovieView(props) {
       })
   }, [favMovies])
 
-  return props.movieList.map(m => ((
-    favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
-      <MovieCard movieData={m} key={m._id} movieKey={m._id} source="user-view-fav-movie" addFavMovie={addFavMovieVar} removeFavMovie={removeFavMovieVar} />
-    </Col>
-  ));
+  // Return placeholder "None" when the user has no currently selected favorite movies
+  if (favMovies.length == 0) {
+    return <h5 className="no-favs">None</h5>
+  }
+
+  // When a user does have favorited movies cycle through the full list of movies and only display a movie card for those included on their favMovies list
+  if (favMovies) {
+    return props.movieList.map(m => ((
+      favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
+        <MovieCard movieData={m} key={m._id} movieKey={m._id} source="user-view-fav-movie" addFavMovie={addFavMovieVar} removeFavMovie={removeFavMovieVar} />
+      </Col>
+    ))
+  }
 }
