@@ -22915,6 +22915,10 @@ var _genreView = require("../genre-view/genre-view");
 var _userView = require("../user-view/user-view");
 var _userViewEdit = require("../user-view-edit/user-view-edit");
 var _favMovieView = require("../fav-movie-view/fav-movie-view");
+var _myCinemaSvg = require("url:../../../img/MyCinema.svg");
+var _myCinemaSvgDefault = parcelHelpers.interopDefault(_myCinemaSvg);
+var _myCinemaLogoSvg = require("url:../../../img/MyCinemaLogo.svg");
+var _myCinemaLogoSvgDefault = parcelHelpers.interopDefault(_myCinemaLogoSvg);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -23005,7 +23009,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 110
+                lineNumber: 112
             },
             __self: this
         }));
@@ -23013,7 +23017,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 115
+                lineNumber: 117
             },
             __self: this,
             children: [
@@ -23021,33 +23025,54 @@ class MainView extends _reactDefault.default.Component {
                     className: "logout-row justify-content-md-right",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 116
+                        lineNumber: 118
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                            md: 9,
+                            md: 8,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 117
+                                lineNumber: 119
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                            children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                                 className: "main-header",
+                                src: _myCinemaSvgDefault.default,
+                                width: "740px",
+                                alt: "MyCinema",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 118
+                                    lineNumber: 120
                                 },
-                                __self: this,
-                                children: "Welcome to myCinema"
+                                __self: this
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                            md: 2,
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 122
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                                className: "main-logo",
+                                src: _myCinemaLogoSvgDefault.default,
+                                width: "265px",
+                                alt: "MyCinema Logo",
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 123
+                                },
+                                __self: this
                             })
                         }),
                         user && /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
                             className: "logout-col",
-                            md: 3,
+                            md: 2,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 121
+                                lineNumber: 126
                             },
                             __self: this,
                             children: [
@@ -23055,7 +23080,7 @@ class MainView extends _reactDefault.default.Component {
                                     to: `/users/${user}`,
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 122
+                                        lineNumber: 127
                                     },
                                     __self: this,
                                     children: [
@@ -23066,7 +23091,7 @@ class MainView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 123
+                                        lineNumber: 128
                                     },
                                     __self: this
                                 }),
@@ -23077,7 +23102,7 @@ class MainView extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 124
+                                        lineNumber: 129
                                     },
                                     __self: this,
                                     children: "Logout"
@@ -23090,7 +23115,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 129
+                        lineNumber: 134
                     },
                     __self: this,
                     children: [
@@ -23107,6 +23132,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "main-view"
                                 }));
                                 return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                        className: "movie-card-col",
                                         md: 3,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                                             movieData: m,
@@ -23121,7 +23147,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 133
+                                lineNumber: 138
                             },
                             __self: this
                         }),
@@ -23139,7 +23165,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 146
+                                lineNumber: 151
                             },
                             __self: this
                         }),
@@ -23162,7 +23188,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 155
+                                lineNumber: 160
                             },
                             __self: this
                         }),
@@ -23189,7 +23215,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 165
+                                lineNumber: 170
                             },
                             __self: this
                         }),
@@ -23216,7 +23242,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 176
+                                lineNumber: 181
                             },
                             __self: this
                         }),
@@ -23257,7 +23283,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 186
+                                lineNumber: 191
                             },
                             __self: this
                         }),
@@ -23279,7 +23305,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 206
+                                lineNumber: 211
                             },
                             __self: this
                         })
@@ -23296,7 +23322,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./main-view.scss":"jyMAr","react-bootstrap/Button":"9CzHT","react-router-dom":"cpyQW","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../user-view/user-view":"fZtM6","../user-view-edit/user-view-edit":"7yLVP","../fav-movie-view/fav-movie-view":"5ziW8"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./main-view.scss":"jyMAr","react-bootstrap/Button":"9CzHT","react-router-dom":"cpyQW","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../user-view/user-view":"fZtM6","../user-view-edit/user-view-edit":"7yLVP","../fav-movie-view/fav-movie-view":"5ziW8","url:../../../img/MyCinema.svg":"duFv4","url:../../../img/MyCinemaLogo.svg":"2R7rQ"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -32858,6 +32884,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 117
@@ -32888,6 +32915,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 122
@@ -32918,6 +32946,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 127
@@ -32956,6 +32985,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 132
@@ -32986,6 +33016,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 137
@@ -33024,6 +33055,7 @@ function UserViewEdit(props) {
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        className: "user-view-edit-label",
                         __source: {
                             fileName: "src/components/user-view-edit/user-view-edit.jsx",
                             lineNumber: 142
@@ -33208,7 +33240,48 @@ $RefreshReg$(_c, "FavMovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","prop-types":"1tgq3","axios":"iYoWk","./fav-movie-view.scss":"ezIQP","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","react-bootstrap/Col":"fbam0","../movie-card/movie-card":"6EiBJ","react/jsx-runtime":"8xIwr"}],"ezIQP":[function() {},{}],"jUTZ8":[function() {},{}],"2PRIq":[function(require,module,exports) {
+},{"react":"6TuXu","prop-types":"1tgq3","axios":"iYoWk","./fav-movie-view.scss":"ezIQP","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"e7a52","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7EV7D","react-bootstrap/Col":"fbam0","../movie-card/movie-card":"6EiBJ","react/jsx-runtime":"8xIwr"}],"ezIQP":[function() {},{}],"duFv4":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "MyCinema.dccba8d3.svg";
+
+},{"./helpers/bundle-url":"7l1qz"}],"7l1qz":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"2R7rQ":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "MyCinemaLogo.af7eceef.svg";
+
+},{"./helpers/bundle-url":"7l1qz"}],"jUTZ8":[function() {},{}],"2PRIq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
