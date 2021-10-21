@@ -13,6 +13,8 @@ import { GenreView } from "../genre-view/genre-view";
 import { UserView } from "../user-view/user-view";
 import { UserViewEdit } from "../user-view-edit/user-view-edit";
 import { FavMovieView } from "../fav-movie-view/fav-movie-view";
+import title from "url:../../../img/MyCinema.svg";
+import logo from "url:../../../img/MyCinemaLogo.svg";
 
 
 
@@ -87,7 +89,6 @@ class MainView extends React.Component {
     console.log(authData);
     this.setState({
       user: authData.user.Username,
-      register: 0
     });
 
     localStorage.setItem("token", authData.token);
@@ -114,11 +115,14 @@ class MainView extends React.Component {
     return (
       <Router>
         <Row className="logout-row justify-content-md-right">
-          <Col md={9}>
-            <p className="main-header">Welcome to myCinema</p>
+          <Col md={8}>
+            <img className="main-header" src={title} width="740px" alt="MyCinema"></img>
+          </Col>
+          <Col md={2}>
+            <img className="main-logo" src={logo} width="265px" alt="MyCinema Logo"></img>
           </Col>
           {/* Conditional Rendering here to prevent user and logout buttons from appearing if no user is currently signed in. */}
-          {user && <Col className="logout-col" md={3}>
+          {user && <Col className="logout-col" md={2}>
             <Link to={`/users/${user}`}>User: {user}</Link>
             <br />
             <Button className="logout" onClick={() => { this.onLoggedOut() }}>Logout</Button>
@@ -135,7 +139,7 @@ class MainView extends React.Component {
             if (movies.length === 0) return <div className="main-view"></div>
 
             return movies.map(m => (
-              <Col md={3} key={m._id}>
+              <Col className="movie-card-col" md={3} key={m._id}>
                 <MovieCard movieData={m} key={m._id} movieKey={m._id} source="main" addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
               </Col>
             ))

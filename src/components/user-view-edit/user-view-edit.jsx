@@ -114,32 +114,32 @@ export function UserViewEdit(props) {
     <Form className="user-view-edit">
       {/* className="form-inline" causes the label and value to be side by side, not responsive at moderately low screen widths */}
       <Form.Group className="form-inline" control_id="form-username">
-        <Form.Label>New Username:</Form.Label>
+        <Form.Label className="user-view-edit-label">New Username:</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </Form.Group>
 
       <Form.Group className="form-inline" control_id="form-new-password">
-        <Form.Label>New Password:</Form.Label>
+        <Form.Label className="user-view-edit-label">New Password:</Form.Label>
         <Form.Control type="password" value={newPassword1} onChange={e => setNewPassword1(e.target.value)} />
       </Form.Group>
 
       <Form.Group className="form-inline" control_id="form-new-password-confirm">
-        <Form.Label>Confirm New Password:</Form.Label>
+        <Form.Label className="user-view-edit-label">Confirm New Password:</Form.Label>
         <Form.Control type="password" value={newPassword2} onChange={e => setNewPassword2(e.target.value)} />
       </Form.Group> <br />
 
       <Form.Group className="form-inline" control_id="form-email">
-        <Form.Label>New E-Mail:</Form.Label>
+        <Form.Label className="user-view-edit-label">New E-Mail:</Form.Label>
         <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} />
       </Form.Group>
 
       <Form.Group className="form-inline" control_id="form-date">
-        <Form.Label>New Birthday:</Form.Label>
+        <Form.Label className="user-view-edit-label">New Birthday:</Form.Label>
         <Form.Control type="text" value={birthdayClean} onChange={e => setBirthdayClean(e.target.value)} />
       </Form.Group> <br />
 
       <Form.Group className="form-inline" control_id="form-password">
-        <Form.Label>Confirm Current Password:</Form.Label>
+        <Form.Label className="user-view-edit-label">Confirm Current Password:</Form.Label>
         <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
 
