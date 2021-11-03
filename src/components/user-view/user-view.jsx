@@ -4,15 +4,15 @@ import axios from "axios";
 import './user-view.scss';
 
 import { Link } from "react-router-dom";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import { MovieCard } from "../movie-card/movie-card";
+// import Col from "react-bootstrap/Col";
+// import { MovieCard } from "../movie-card/movie-card";
 import Modal from "react-bootstrap/Modal";
 
 export function UserView(props) {
 
-  const [username, setUsername] = useState(`${localStorage.getItem("user")}`);
+  const [username, setUsername] = useState(`${props.user}`);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");

@@ -1,20 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import './movie-card.scss';
+import "./movie-card.scss";
 
 import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 
-export class MovieCard extends React.Component {
+// Fav/Unfav button handling to be implemented here
 
+export class MovieCard extends React.Component {
   render() {
     const { movieData, addFavMovie, removeFavMovie, movieKey, source } = this.props;
 
     return (
       <Card border="dark" className={source}>
         {/* &#10025; */}
+        {/* ^Star */}
         <span className="fav-movie">
           <Button className="fav-movie" variant="outline-success" onClick={() => { addFavMovie(movieKey); }}>Favorite</Button>
         </span>

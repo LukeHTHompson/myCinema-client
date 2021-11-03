@@ -28,7 +28,7 @@ padding: 0;
 }
 
 span.fav-movie, span.unfav-movie {
-  width: 50%;
+  width: 100%;
 }
 
 button.fav-movie, button.unfav-movie {
@@ -36,7 +36,7 @@ button.fav-movie, button.unfav-movie {
 }
 
 .unfav-movie {
-  position: absolute;
+  // position: absolute;
   text-align: center;
   min-width: 26px;
   min-height: 26px;

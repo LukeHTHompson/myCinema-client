@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import './login-view.scss';
+import "./login-view.scss";
 
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -74,6 +74,7 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Remove for final
     console.log("U: " + username, "P: " + password);
     /* send request for auth */
     axios.post("https://lht-my-cinema.herokuapp.com/login", {
@@ -82,12 +83,13 @@ export function LoginView(props) {
     })
       .then(response => {
         const data = response.data;
+        // Remove for final
         console.log(data);
         props.onLoggedIn(data);
       })
       .catch(e => {
         console.log(e.message)
-        console.log("No Matching User")
+        console.log("Error Logging In")
         const form = document.querySelector("#loginForm")
         showErrorMessage(form, "Incorrect Username and/or Password")
       })
