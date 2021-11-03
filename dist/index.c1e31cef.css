@@ -103,59 +103,6 @@ label {
   font-size: 9pt;
   vertical-align: middle;
 }
-.card {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 100%;
-}
-
-.card-img-top {
-  max-width: 250px;
-  max-height: 351px;
-  border-bottom: 1px solid grey;
-}
-
-.movie-card-col {
-  padding: 0;
-}
-
-.fav-movie {
-  text-align: center;
-  min-width: 26px;
-  min-height: 26px;
-  top: 0;
-  left: 0;
-}
-.fav-movie :hover {
-  background-color: darkkhaki;
-}
-
-span.fav-movie, span.unfav-movie {
-  width: 50%;
-}
-
-button.fav-movie, button.unfav-movie {
-  width: 100%;
-}
-
-.unfav-movie {
-  position: absolute;
-  text-align: center;
-  min-width: 26px;
-  min-height: 26px;
-  top: 0;
-  right: 0;
-}
-
-.hide {
-  display: none;
-}
-
-.more-info {
-  position: absolute;
-  left: 8px;
-  bottom: 4px;
-}
 .director-view-back {
   text-align: center;
 }
@@ -323,6 +270,58 @@ input.form-control {
 .no-favs {
   width: 100%;
   text-align: center;
+}
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.card-img-top {
+  max-width: 250px;
+  max-height: 351px;
+  border-bottom: 1px solid grey;
+}
+
+.movie-card-col {
+  padding: 0;
+}
+
+.fav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  left: 0;
+}
+.fav-movie :hover {
+  background-color: darkkhaki;
+}
+
+span.fav-movie, span.unfav-movie {
+  width: 100%;
+}
+
+button.fav-movie, button.unfav-movie {
+  width: 100%;
+}
+
+.unfav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.more-info {
+  position: absolute;
+  left: 8px;
+  bottom: 4px;
 }
 .my-flix {
   color: steelblue;
