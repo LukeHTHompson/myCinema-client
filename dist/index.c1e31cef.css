@@ -1,0 +1,334 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movie-view-info-top {
+  text-align: center;
+}
+
+.movie-title {
+  font-weight: 700;
+  font-size: 24pt;
+}
+
+button.dir-link, button.genre-link {
+  padding: 0px;
+}
+
+.movie-view-poster {
+  border: 2px solid grey;
+  max-height: 500px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.movie-view-info-bottom {
+  text-align: center;
+}
+
+.movie-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.movie-home {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.movie-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+}
+button.lgn-btn {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-left: 0px;
+}
+button.reg-btn {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-left: 0px;
+}
+div.col-md-3 {
+  padding: 15px;
+}
+
+.main-header {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-logo {
+  margin-top: 35px;
+}
+
+.logout {
+  margin: 6px;
+}
+
+.logout-col {
+  margin-top: 85px;
+  text-align: right;
+}
+
+label {
+  color: #FFD501;
+}
+
+.container {
+  overflow: hidden;
+  background-color: #08022A;
+  border-radius: 20px;
+  border: 5px solid #680515;
+}
+
+.app-container {
+  background-color: #3A1247;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: red;
+  font-size: 9pt;
+  vertical-align: middle;
+}
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.card-img-top {
+  max-width: 250px;
+  max-height: 351px;
+  border-bottom: 1px solid grey;
+}
+
+.movie-card-col {
+  padding: 0;
+}
+
+.fav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  left: 0;
+}
+.fav-movie :hover {
+  background-color: darkkhaki;
+}
+
+span.fav-movie, span.unfav-movie {
+  width: 50%;
+}
+
+button.fav-movie, button.unfav-movie {
+  width: 100%;
+}
+
+.unfav-movie {
+  position: absolute;
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.more-info {
+  position: absolute;
+  left: 8px;
+  bottom: 4px;
+}
+.director-view-back {
+  text-align: center;
+}
+
+.director-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+}
+
+button.director-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.director-home {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.director-name {
+  font-weight: 700;
+  font-size: 24pt;
+}
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+}
+
+.genre-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.genre-home {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.genre-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.genre-name {
+  font-weight: 700;
+  font-size: 24pt;
+}
+.user-view-col {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 66%;
+  align-content: center;
+}
+
+div.user-view-info {
+  max-width: 50%;
+  margin: auto;
+}
+
+.user-info-label {
+  float: left;
+}
+
+.user-info-value {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-view-edit-button {
+  width: 200px;
+}
+
+.user-view-delete-button {
+  width: 200px;
+}
+
+.user-home {
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-close {
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+  color: #000;
+  text-decoration: none;
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+  border: 0;
+  border-radius: 0.25em;
+  opacity: 0.5;
+}
+
+.btn-close:hover {
+  opacity: 0.75;
+}
+.user-view-edit {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-view-edit-label {
+  color: black;
+}
+
+input.form-control {
+  flex: 1;
+}
+
+.form-label {
+  margin-right: 10px;
+  min-width: 218px;
+  align-content: right;
+}
+.fav-movie-card {
+  text-align: left;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 98%;
+}
+
+.user-view-fav-movie-row {
+  text-align: center;
+}
+
+.favs {
+  width: 100%;
+  text-align: center;
+}
+
+.no-favs {
+  width: 100%;
+  text-align: center;
+}
+.my-flix {
+  color: steelblue;
+}
+
+body {
+  min-height: 100vh;
+}
+/*# sourceMappingURL=index.c1e31cef.css.map */
