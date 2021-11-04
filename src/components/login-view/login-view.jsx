@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import './login-view.scss';
-
-// Imports for Store connection and state manipulation
-import { connect } from "react-redux";
-import { setUser, setToken, setMovies } from "../../actions/actions";
+import axios from "axios";
+import "./login-view.scss";
 
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -13,21 +10,8 @@ import Button from "react-bootstrap/Button";
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  // let { user, token, movies } = this.props;
-
-  function onLoggedIn(authData) {
-    // Remove for final
-    console.log(authData);
-    setUser(authData.user.Username);
-    // this.props.setUser("tester")
-    setToken(authData.token);
-    console.log(authData.user.Username)
-    console.log(authData.token)
-    localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.Username);
-    // this.getMovies(this.props.token);
-  }
+  const [validUsername, setValidUsername] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
 
   function showErrorMessage(input, message) {
     let container = input.parentElement;
@@ -47,9 +31,6 @@ export function LoginView(props) {
   }
 
   function checkUsername(username) {
-    // REMOVE AFTER TESTING
-    setUser(username);
-
     setUsername(username);
     let value = username;
     let regex = new RegExp("^[a-z0-9]+$", "i")
@@ -104,8 +85,7 @@ export function LoginView(props) {
         const data = response.data;
         // Remove for final
         console.log(data);
-
-        onLoggedIn(data);
+        props.onLoggedIn(data);
       })
       .catch(e => {
         console.log(e.message)
@@ -116,25 +96,25 @@ export function LoginView(props) {
   };
 
   return (
+    <Form id="loginForm">
+      <Form.Group control_id="formUsername">
 
-    <Form>
-      <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        <Form.Control id="formUsername" type="text" value={username} onChange={e => checkUsername(e.target.value)} />
       </Form.Group>
 
-      <Form.Group controlId="formPassword">
+      <Form.Group control_id="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Form.Control id="formPassword" type="password" value={password} onChange={e => checkPassword(e.target.value)} />
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit} >
+      <Button disabled={!(validUsername && validPassword)} className="lgn-btn" variant="primary" type="submit" onClick={handleSubmit} >
         Submit
       </Button>
 
-      <Button variant="primary" type="submit" onClick={handleRegister} >
-        Register
-      </Button>
+      <Link to={`/register`}>
+        <Button className="lgn-btn" variant="primary">Register</Button>
+      </Link>
     </Form>
   );
 }
@@ -143,12 +123,3 @@ LoginView.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
 };
-
-let mapStateToProps = state => {
-  return {
-    user: state.user,
-    token: state.token
-  }
-}
-
-connect(mapStateToProps, { setUser, setToken })(LoginView);
