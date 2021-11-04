@@ -21,9 +21,23 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
+<<<<<<< Updated upstream
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-rc.0"
+=======
+    "react-datepicker": "^4.2.1",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "redux-devtools-extension": "^2.13.9",
+    "remote-redux-devtools": "^0.5.0"
+>>>>>>> Stashed changes
   }
 }

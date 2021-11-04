@@ -4,6 +4,15 @@ import ReactDOM from 'react-dom';
 import MainView from './components/main-view/main-view';
 import Container from "react-bootstrap/Container";
 
+<<<<<<< Updated upstream
+=======
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import moviesApp from './reducers/reducers';
+// import { devToolsEnhancer } from 'redux-devtools-extension';
+import devToolsEnhancer from 'remote-redux-devtools';
+
+>>>>>>> Stashed changes
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
 
