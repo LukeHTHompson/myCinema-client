@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import './login-view.scss';
 
-<<<<<<< Updated upstream
-=======
 // Imports for Store connection and state manipulation
 import { connect } from "react-redux";
 import { setUser, setToken, setMovies } from "../../actions/actions";
 
 import { Link } from "react-router-dom";
->>>>>>> Stashed changes
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -17,19 +14,6 @@ export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-<<<<<<< Updated upstream
-  const handleSubmit = () => {
-    event.preventDefault();
-    console.log("U: " + username, "P: " + password);
-    /* send request for auth */
-    props.onLoggedIn(username);
-  };
-
-  const handleRegister = () => {
-    event.preventDefault();
-    console.log("TEST");
-    props.onRegisterButton(1);
-=======
   // let { user, token, movies } = this.props;
 
   function onLoggedIn(authData) {
@@ -129,7 +113,6 @@ export function LoginView(props) {
         const form = document.querySelector("#loginForm")
         showErrorMessage(form, "Incorrect Username and/or Password")
       })
->>>>>>> Stashed changes
   };
 
   return (
@@ -158,10 +141,6 @@ export function LoginView(props) {
 
 LoginView.propTypes = {
   username: PropTypes.string,
-<<<<<<< Updated upstream
-  password: PropTypes.string
-};
-=======
   password: PropTypes.string,
 };
 
@@ -173,4 +152,3 @@ let mapStateToProps = state => {
 }
 
 connect(mapStateToProps, { setUser, setToken })(LoginView);
->>>>>>> Stashed changes
