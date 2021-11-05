@@ -1,20 +1,29 @@
+// Main Imports
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./fav-movie-view.scss";
+
+// React Standard Components
+import Col from "react-bootstrap/Col";
+
+// Views
 import { MovieCard } from "../movie-card/movie-card";
 
+// Store connection
+import { connect } from "react-redux";
 
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+// Styling
+import "./fav-movie-view.scss";
 
 export function FavMovieView(props) {
-  const [username, setUsername] = useState(`${localStorage.getItem("user")}`);
+
+  let { user, token, movies } = props;
+
+  const [username, setUsername] = useState(`${user}`);
   const [favMovies, setFavMovies] = useState([])
-  const token = localStorage.getItem("token");
 
   function addFavMovieVar(movieKey) {
-    axios.post(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+    axios.post(`https://lht-my-cinema.herokuapp.com/users/${user}/favorites/${movieKey}`,
       {},
       { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
     )
@@ -32,7 +41,7 @@ export function FavMovieView(props) {
   }
 
   function removeFavMovieVar(movieKey) {
-    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
+    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${user}/favorites/${movieKey}`,
       { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
     )
       .then(response => {
@@ -47,7 +56,7 @@ export function FavMovieView(props) {
   }
 
   useEffect(() => {
-    axios.get(`https://lht-my-cinema.herokuapp.com/users/${username}`, {
+    axios.get(`https://lht-my-cinema.herokuapp.com/users/${user}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -56,7 +65,7 @@ export function FavMovieView(props) {
         }
       })
       .catch(function (error) {
-        console.log("ERROR");
+        console.log("ERROR: " + error);
       })
   }, [favMovies])
 
@@ -67,10 +76,20 @@ export function FavMovieView(props) {
 
   // When a user does have favorited movies cycle through the full list of movies and only display a movie card for those included on their favMovies list
   if (favMovies) {
-    return props.movieList.map(m => ((
+    return props.movies.map(m => ((
       favMovies.includes(m._id)) && <Col md={4} key={m._id} className="fav-movie-card">
         <MovieCard movieData={m} key={m._id} movieKey={m._id} source="user-view-fav-movie" addFavMovie={addFavMovieVar} removeFavMovie={removeFavMovieVar} />
       </Col>
     ))
   }
 }
+
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    token: state.token,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps)(FavMovieView);

@@ -21,12 +21,12 @@ export class MovieCard extends React.Component {
           <Button className="fav-movie" variant="outline-success" onClick={() => { addFavMovie(movieKey); }}>Favorite</Button>
         </span>
         <span className="unfav-movie">
-          <Button className="unfav-movie" variant="outline-danger" onClick={() => { removeFavMovie(movieKey) }}>Unfavorite</Button>
+          <Button className="unfav-movie" variant="outline-danger" onClick={() => { removeFavMovie(movieData._id) }}>Unfavorite</Button>
         </span>
         <Card.Img variant="top" src={movieData.ImagePath} />
         <Card.Body>
           <Card.Title>{movieData.Title} ({movieData.Genre.Name})</Card.Title>
-          <Card.Text>{movieData.Description}</Card.Text>
+          <Card.Text>{movieData.Description} , {movieData._id}</Card.Text>
           <Link to={`/movies/${movieData._id}`}>
             <Button className="more-info" variant="link">More Info</Button>
           </Link>

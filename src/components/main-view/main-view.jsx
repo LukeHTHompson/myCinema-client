@@ -21,7 +21,7 @@ import MoviesList from "../movies-list/movies-list";
 
 // Store connection
 import { connect } from "react-redux";
-import { setUser, setMovies } from "../../actions/actions";
+import { setUser, setToken, setMovies } from "../../actions/actions";
 
 // Styling
 import "./main-view.scss";
@@ -32,20 +32,14 @@ class MainView extends React.Component {
 
   constructor() {
     super();
-    // this.state = {
-    //   user: null,
-    // };
   }
 
-  // Replace User
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
-      // this.props.setUser(this.props.user);
       this.getMovies(accessToken);
     }
   }
-
 
   getMovies(token) {
     axios.get("https://lht-my-cinema.herokuapp.com/movies", {
@@ -59,10 +53,10 @@ class MainView extends React.Component {
       });
   }
 
-  addFavMovie(user, movieKey) {
-    axios.post(`https://lht-my-cinema.herokuapp.com/users/${user}/favorites/${movieKey}`,
+  addFavMovie(movieKey) {
+    axios.post(`https://lht-my-cinema.herokuapp.com/users/${this.props.user}/favorites/${movieKey}`,
       {},
-      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+      { headers: { Authorization: `Bearer ${this.props.token}` } }
     )
       .then(response => {
         console.log(response.data.FavoriteMovies);
@@ -73,9 +67,9 @@ class MainView extends React.Component {
       })
   }
 
-  removeFavMovie(user, movieKey) {
-    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${user}}/favorites/${movieKey}`,
-      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+  removeFavMovie(movieKey) {
+    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${this.props.user}/favorites/${movieKey}`,
+      { headers: { Authorization: `Bearer ${this.props.token}` } }
     )
       .then(response => {
         console.log(response.data.FavoriteMovies);
@@ -89,24 +83,20 @@ class MainView extends React.Component {
   onLoggedIn(authData) {
     // Remove for final
     console.log(authData);
-    this.props.setUser(authData.user.Username);
+    this.props.setUser(authData.user);
+    this.props.setToken(authData.token);
     localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
   }
 
   onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.props.setUser("");
+    this.props.setUser("tester");
+    this.props.setToken("");
     window.open("/", "_self")
   }
 
   render() {
-    let { user, movies } = this.props;
-    // if (register) return <RegistrationView onLoggedIn={user => this.onLoggedIn(user)} onRegister={data => this.onRegister(data)} />;
-
-    // if (movies.length === 0) return <div className="main-view"></div>;
+    let { user, token, movies } = this.props;
 
     return (
       <Router>
@@ -114,10 +104,10 @@ class MainView extends React.Component {
           <Col md={8}>
             <img className="main-header" src={title} width="740px" alt="MyCinema"></img>
           </Col>
-          <Col md={2}>
+          {user && <Col md={2}>
             <img className="main-logo" src={logo} width="265px" alt="MyCinema Logo"></img>
-          </Col>
-          {/* Conditional Rendering here to prevent user and logout buttons from appearing if no user is currently signed in. */}
+          </Col>}
+
           {user && <Col className="logout-col" md={2}>
             <Link to={`/users/${user}`}>User: {user}</Link>
             <br />
@@ -135,12 +125,6 @@ class MainView extends React.Component {
             if (movies.length === 0) return <div className="main-view"></div>
 
             return <MoviesList movies={movies} user={user} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />;
-
-            // return movies.map(m => (
-            //   <Col className="movie-card-col" md={3} key={m._id}>
-            //     <MovieCard movieData={m} key={m._id} movieKey={m._id} source="main" addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
-            //   </Col>
-            // ))
           }} />
 
 
@@ -193,11 +177,15 @@ class MainView extends React.Component {
                 <div className="user-view-col">
                   <Col md={12}>
                     {/* We currently lose the props.movieList values on refresh of page */}
-                    <UserView movieList={movies} user={user} />
+                    <UserView
+                    // user={user} token={token} 
+                    />
                   </Col>
 
                   <Row className="user-view-fav-movie-row">
-                    <FavMovieView movieList={movies} source="user-view-fav-movie" getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
+                    <FavMovieView
+                      // movies={movies} user={user} token={token}
+                      source="user-view-fav-movie" getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
                   </Row>
                 </div>
               </React.Fragment>
@@ -221,9 +209,10 @@ class MainView extends React.Component {
 
 let mapStateToProps = state => {
   return {
-    user: state.user,
+    user: state.user.Username,
+    token: state.token,
     movies: state.movies
   }
 }
 
-export default connect(mapStateToProps, { setUser, setMovies })(MainView);
+export default connect(mapStateToProps, { setUser, setToken, setMovies })(MainView);

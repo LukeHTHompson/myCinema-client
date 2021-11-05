@@ -1,28 +1,18 @@
-// Could import the following to allow for validation that a registering username is not already taken:
-// const Models = require("./models.js"); // Need to adjust the filepath here
-// const Users = Models.User;
-
-// Place this into checkUsername(username):
-
-// Users.findOne({ Username: username }).exec()
-//   .then((name) => {
-//     if (name) {
-//       showErrorMessage(usernameInput, "'{username}' is already taken.")
-//       return false;
-//     }
-//    .catch((error) => {console.log(error)})
-//   }
-
+// Main Imports
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import './registration-view.scss';
 
+// React Standard Components
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+// Styling
+import './registration-view.scss';
+
 export function RegistrationView(props) {
+  // Local States for form entry and validation
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
