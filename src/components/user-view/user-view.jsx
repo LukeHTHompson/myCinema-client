@@ -31,8 +31,6 @@ export function UserView(props) {
 
   // Call API endpoint to delete your own account, password validation required
   const handleDelete = () => {
-    console.log("check localstorage for user to delete");
-    console.log("Call delete account API");
     axios.post("https://lht-my-cinema.herokuapp.com/login", {
       Username: user,
       Password: password
@@ -90,7 +88,7 @@ export function UserView(props) {
           <h2>Profile Information</h2> <br />
         </div>
         <div className="user-view-info">
-          <span className="user-info-label">user: </span><span className="user-info-value">{user}</span><span></span> <br />
+          <span className="user-info-label">Username: </span><span className="user-info-value">{user}</span><span></span> <br />
           <span className="user-info-label">Email: </span><span className="user-info-value">{email}</span><span></span> <br />
           <span className="user-info-label">Birthdate: </span><span className="user-info-value">{birthdayClean}</span><span></span> <br /> <br />
         </div>
