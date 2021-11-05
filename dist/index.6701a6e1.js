@@ -29917,8 +29917,6 @@ function UserView(props) {
     ;
     // Call API endpoint to delete your own account, password validation required
     const handleDelete = ()=>{
-        console.log("check localstorage for user to delete");
-        console.log("Call delete account API");
         _axiosDefault.default.post("https://lht-my-cinema.herokuapp.com/login", {
             Username: user,
             Password: password
@@ -29969,7 +29967,7 @@ function UserView(props) {
         className: "user-view",
         __source: {
             fileName: "src/components/user-view/user-view.jsx",
-            lineNumber: 85
+            lineNumber: 83
         },
         __self: this,
         children: [
@@ -29977,7 +29975,7 @@ function UserView(props) {
                 className: "user-view-top",
                 __source: {
                     fileName: "src/components/user-view/user-view.jsx",
-                    lineNumber: 88
+                    lineNumber: 86
                 },
                 __self: this,
                 children: [
@@ -29985,14 +29983,14 @@ function UserView(props) {
                         className: "user-view-title",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 89
+                            lineNumber: 87
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 90
+                                    lineNumber: 88
                                 },
                                 __self: this,
                                 children: "Profile Information"
@@ -30001,7 +29999,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 90
+                                    lineNumber: 88
                                 },
                                 __self: this
                             })
@@ -30011,7 +30009,7 @@ function UserView(props) {
                         className: "user-view-info",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 92
+                            lineNumber: 90
                         },
                         __self: this,
                         children: [
@@ -30019,16 +30017,16 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 91
                                 },
                                 __self: this,
-                                children: "user: "
+                                children: "Username: "
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 91
                                 },
                                 __self: this,
                                 children: user
@@ -30036,7 +30034,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 91
                                 },
                                 __self: this
                             }),
@@ -30044,7 +30042,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 91
                                 },
                                 __self: this
                             }),
@@ -30052,7 +30050,7 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 92
                                 },
                                 __self: this,
                                 children: "Email: "
@@ -30061,7 +30059,7 @@ function UserView(props) {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 92
                                 },
                                 __self: this,
                                 children: email
@@ -30069,7 +30067,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 92
                                 },
                                 __self: this
                             }),
@@ -30077,7 +30075,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 92
                                 },
                                 __self: this
                             }),
@@ -30085,7 +30083,7 @@ function UserView(props) {
                                 className: "user-info-label",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 },
                                 __self: this,
                                 children: "Birthdate: "
@@ -30094,7 +30092,7 @@ function UserView(props) {
                                 className: "user-info-value",
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 },
                                 __self: this,
                                 children: birthdayClean
@@ -30102,7 +30100,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 },
                                 __self: this
                             }),
@@ -30110,7 +30108,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 },
                                 __self: this
                             }),
@@ -30118,7 +30116,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 93
                                 },
                                 __self: this
                             })
@@ -30128,7 +30126,7 @@ function UserView(props) {
                         className: "user-view-actions",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 98
+                            lineNumber: 96
                         },
                         __self: this,
                         children: [
@@ -30136,7 +30134,7 @@ function UserView(props) {
                                 to: `/users/${user}/edit`,
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 100
+                                    lineNumber: 98
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -30145,7 +30143,7 @@ function UserView(props) {
                                     type: "button",
                                     __source: {
                                         fileName: "src/components/user-view/user-view.jsx",
-                                        lineNumber: 101
+                                        lineNumber: 99
                                     },
                                     __self: this,
                                     children: "Edit Information"
@@ -30154,7 +30152,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 103
+                                    lineNumber: 101
                                 },
                                 __self: this
                             }),
@@ -30165,7 +30163,7 @@ function UserView(props) {
                                 onClick: handleShow,
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 104
+                                    lineNumber: 102
                                 },
                                 __self: this,
                                 children: "Delete Account"
@@ -30173,7 +30171,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 105
+                                    lineNumber: 103
                                 },
                                 __self: this
                             })
@@ -30187,7 +30185,7 @@ function UserView(props) {
                         centered: true,
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 108
+                            lineNumber: 106
                         },
                         __self: this,
                         children: [
@@ -30195,14 +30193,14 @@ function UserView(props) {
                                 closeButton: true,
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 110
+                                    lineNumber: 108
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_modalDefault.default.Title, {
                                     id: "contained-modal-title-vcenter",
                                     __source: {
                                         fileName: "src/components/user-view/user-view.jsx",
-                                        lineNumber: 111
+                                        lineNumber: 109
                                     },
                                     __self: this,
                                     children: "Delete Account"
@@ -30211,7 +30209,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_modalDefault.default.Body, {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 113
+                                    lineNumber: 111
                                 },
                                 __self: this,
                                 children: [
@@ -30223,7 +30221,7 @@ function UserView(props) {
                                         ,
                                         __source: {
                                             fileName: "src/components/user-view/user-view.jsx",
-                                            lineNumber: 115
+                                            lineNumber: 113
                                         },
                                         __self: this
                                     })
@@ -30232,7 +30230,7 @@ function UserView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_modalDefault.default.Footer, {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 117
+                                    lineNumber: 115
                                 },
                                 __self: this,
                                 children: [
@@ -30241,7 +30239,7 @@ function UserView(props) {
                                         onClick: handleClose,
                                         __source: {
                                             fileName: "src/components/user-view/user-view.jsx",
-                                            lineNumber: 118
+                                            lineNumber: 116
                                         },
                                         __self: this,
                                         children: "Back"
@@ -30251,7 +30249,7 @@ function UserView(props) {
                                         onClick: handleDelete,
                                         __source: {
                                             fileName: "src/components/user-view/user-view.jsx",
-                                            lineNumber: 119
+                                            lineNumber: 117
                                         },
                                         __self: this,
                                         children: "Delete"
@@ -30264,7 +30262,7 @@ function UserView(props) {
                         className: "user-view-home",
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 123
+                            lineNumber: 121
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
@@ -30272,7 +30270,7 @@ function UserView(props) {
                             className: "user-home",
                             __source: {
                                 fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 125
+                                lineNumber: 123
                             },
                             __self: this,
                             children: "Home"
@@ -30281,7 +30279,7 @@ function UserView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 127
+                            lineNumber: 125
                         },
                         __self: this
                     })
@@ -30290,13 +30288,13 @@ function UserView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/components/user-view/user-view.jsx",
-                    lineNumber: 130
+                    lineNumber: 128
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                     __source: {
                         fileName: "src/components/user-view/user-view.jsx",
-                        lineNumber: 131
+                        lineNumber: 129
                     },
                     __self: this,
                     children: "Favorite Movies: "
