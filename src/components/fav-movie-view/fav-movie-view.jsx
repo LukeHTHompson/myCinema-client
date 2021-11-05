@@ -53,7 +53,6 @@ export function FavMovieView(props) {
       .then(response => {
         if (favMovies.length !== response.data[0].FavoriteMovies.length) {
           setFavMovies(response.data[0].FavoriteMovies)
-          console.log("testing text");
         }
       })
       .catch(function (error) {

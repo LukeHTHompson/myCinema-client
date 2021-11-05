@@ -73,18 +73,16 @@ export function LoginView(props) {
   }
 
   const handleSubmit = (e) => {
+    // Prevents race condition with page reloading on default submit behavior
     e.preventDefault();
-    // Remove for final
-    console.log("U: " + username, "P: " + password);
-    /* send request for auth */
+
+    // Send request for authorization
     axios.post("https://lht-my-cinema.herokuapp.com/login", {
       Username: username,
       Password: password
     })
       .then(response => {
         const data = response.data;
-        // Remove for final
-        console.log(data);
         props.onLoggedIn(data);
       })
       .catch(e => {
