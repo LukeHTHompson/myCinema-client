@@ -17,6 +17,7 @@ export class MovieCard extends React.Component {
       <Card border="dark" className={source}>
         {/* &#10025; */}
         {/* ^Star */}
+        {/* {movieData._id} is in user.FavoriteMovies array */}
         <span className="fav-movie">
           <Button className="fav-movie" variant="outline-success" onClick={() => { addFavMovie(movieKey); }}>Favorite</Button>
         </span>
@@ -26,7 +27,7 @@ export class MovieCard extends React.Component {
         <Card.Img variant="top" src={movieData.ImagePath} />
         <Card.Body>
           <Card.Title>{movieData.Title} ({movieData.Genre.Name})</Card.Title>
-          <Card.Text>{movieData.Description} , {movieData._id}</Card.Text>
+          <Card.Text>{movieData.Description}</Card.Text>
           <Link to={`/movies/${movieData._id}`}>
             <Button className="more-info" variant="link">More Info</Button>
           </Link>

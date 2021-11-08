@@ -90,7 +90,7 @@ class MainView extends React.Component {
   }
 
   onLoggedOut() {
-    this.props.setUser("tester");
+    this.props.setUser("");
     this.props.setToken("");
     window.open("/", "_self")
   }

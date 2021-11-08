@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 
 // Store connection
 import { connect } from "react-redux";
+import { setUser, setToken, setMovies } from "../../actions/actions";
 
 // Styling
 import './user-view.scss';
@@ -61,7 +62,7 @@ export function UserView(props) {
 
 
   useEffect(() => {
-    axios.get(`https://lht-my-cinema.herokuapp.com/users/${user}`, {
+    axios.get(`https://lht-my-cinema.herokuapp.com/users/${props.user}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -79,6 +80,8 @@ export function UserView(props) {
       })
   }, [token])
 
+  // setBirthdayClean(date.getUTCMonth() + 1 + "-" + date.getUTCDate() + "-" + date.getUTCFullYear())
+
   return (
     <div className="user-view">
 
@@ -88,7 +91,7 @@ export function UserView(props) {
           <h2>Profile Information</h2> <br />
         </div>
         <div className="user-view-info">
-          <span className="user-info-label">Username: </span><span className="user-info-value">{user}</span><span></span> <br />
+          <span className="user-info-label">Username: </span><span className="user-info-value">{props.user}</span><span></span> <br />
           <span className="user-info-label">Email: </span><span className="user-info-value">{email}</span><span></span> <br />
           <span className="user-info-label">Birthdate: </span><span className="user-info-value">{birthdayClean}</span><span></span> <br /> <br />
         </div>
@@ -146,8 +149,9 @@ let mapStateToProps = state => {
   return {
     user: state.user,
     token: state.token,
-    movies: state.movies
+    movies: state.movies,
+    visibilityFilter: state.visibilityFilter
   }
 }
 
-export default connect(mapStateToProps)(UserView);
+export default connect(mapStateToProps, { setUser, setToken, setMovies })(UserView);

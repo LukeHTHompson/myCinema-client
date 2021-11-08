@@ -39,14 +39,21 @@ function visibilityFilter(state = "", action) {
   }
 }
 
-function moviesApp(state = {}, action) {
-  return {
-    user: user(state.user, action),
-    token: token(state.token, action),
-    movies: movies(state.movies, action),
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-  }
-}
+// function moviesApp(state, action) {
+//   return {
+//     user: user(state.user, action),
+//     token: token(state.token, action),
+//     movies: movies(state.movies, action),
+//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+//   }
+// }
+
+const moviesApp = combineReducers({
+  user,
+  token,
+  movies,
+  visibilityFilter
+})
 
 
 export default moviesApp;
