@@ -33956,6 +33956,7 @@ $parcel$ReactRefreshHelpers$ff5e.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// import DatePicker from "react-datepicker";
 parcelHelpers.export(exports, "UserViewEdit", ()=>UserViewEdit
 );
 var _jsxRuntime = require("react/jsx-runtime");
