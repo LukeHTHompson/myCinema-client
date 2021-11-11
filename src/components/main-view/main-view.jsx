@@ -104,12 +104,12 @@ class MainView extends React.Component {
           <Col md={8}>
             <img className="main-header" src={title} width="740px" alt="MyCinema"></img>
           </Col>
-          {user && <Col md={2}>
+          {token && <Col md={2}>
             <img className="main-logo" src={logo} width="265px" alt="MyCinema Logo"></img>
           </Col>}
 
-          {user && <Col className="logout-col" md={2}>
-            <Link to={`/users/${user}`}>User: {user}</Link>
+          {token && <Col className="logout-col" md={2}>
+            <Link to={`/users/${user}`}>User: {user.Username}</Link>
             <br />
             <Button className="logout" onClick={() => { this.onLoggedOut() }}>Logout</Button>
           </Col>}
@@ -121,7 +121,7 @@ class MainView extends React.Component {
 
           {/* Login/Main View */}
           <Route exact path="/" render={() => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
             if (movies.length === 0) return <div className="main-view"></div>
 
             return <MoviesList movies={movies} user={user} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />;
@@ -130,7 +130,7 @@ class MainView extends React.Component {
 
           {/* Registration View */}
           <Route path="/register" render={({ history }) => {
-            if (user) return <Redirect to="/" />
+            if (token) return <Redirect to="/" />
             return <Col>
               <RegistrationView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
@@ -139,7 +139,7 @@ class MainView extends React.Component {
 
           {/* Movie View */}
           <Route path="/movies/:movie_id" render={({ match, history }) => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return <Col md={8}>
               <MovieView movieData={movies.find(m => m._id === match.params.movie_id)} onBackClick={() => history.goBack()} />
@@ -149,7 +149,7 @@ class MainView extends React.Component {
 
           {/* Director View */}
           <Route path="/directors/:name" render={({ match, history }) => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
@@ -160,7 +160,7 @@ class MainView extends React.Component {
 
           {/* Genre View */}
           <Route path="/genres/:name" render={({ match, history }) => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
@@ -170,21 +170,20 @@ class MainView extends React.Component {
 
           {/* User View */}
           <Route exact path="/users/:user" render={({ match, history }) => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return (
               <React.Fragment>
                 <div className="user-view-col">
                   <Col md={12}>
-                    {/* We currently lose the props.movieList values on refresh of page */}
                     <UserView
-                    // user={user} token={token} 
+                    // user={user} token={token}
                     />
                   </Col>
 
                   <Row className="user-view-fav-movie-row">
                     <FavMovieView
-                      // movies={movies} user={user} token={token}
+                      movies={movies} user={user} token={token}
                       source="user-view-fav-movie" getMovies={token => this.getMovies(token)} addFavMovie={movie => this.addFavMovie(movie)} removeFavMovie={movie => this.removeFavMovie(movie)} />
                   </Row>
                 </div>
@@ -194,7 +193,7 @@ class MainView extends React.Component {
 
           {/* User View Edit */}
           <Route path="/users/:user/edit" render={({ match, history }) => {
-            if (!user) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
+            if (!token) return <Col><LoginView onLoggedIn={user => this.onLoggedIn(user)} /></Col>
 
             return <Col md={8}>
               <UserViewEdit movieList={movies} onLoggedIn={user => this.onLoggedIn(user)} />
