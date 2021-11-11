@@ -1,3 +1,5 @@
+// Remove setUserInfo and related pieces.
+
 // Main imports
 import React from "react";
 import axios from "axios";
@@ -21,7 +23,7 @@ import MoviesList from "../movies-list/movies-list";
 
 // Store connection
 import { connect } from "react-redux";
-import { setUser, setToken, setMovies } from "../../actions/actions";
+import { setUser, setUserInfo, setToken, setMovies } from "../../actions/actions";
 
 // Styling
 import "./main-view.scss";
@@ -84,6 +86,7 @@ class MainView extends React.Component {
     // Remove for final
     console.log(authData);
     this.props.setUser(authData.user);
+    // this.props.setUserInfo(authData.user);
     this.props.setToken(authData.token);
     localStorage.setItem("token", authData.token);
     this.getMovies(authData.token);
@@ -208,10 +211,15 @@ class MainView extends React.Component {
 
 let mapStateToProps = state => {
   return {
-    user: state.user.Username,
+    user: state.user,
+    // userInfo: state.user,
     token: state.token,
     movies: state.movies
   }
 }
 
-export default connect(mapStateToProps, { setUser, setToken, setMovies })(MainView);
+export default connect(mapStateToProps, {
+  setUser,
+  // setUserInfo,
+  setToken, setMovies
+})(MainView);

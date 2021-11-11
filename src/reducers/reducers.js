@@ -1,16 +1,29 @@
 // src/reducers/reducers.js
 import { combineReducers } from "redux";
 
-import { SET_USER, SET_TOKEN, SET_MOVIES, SET_FILTER } from "../actions/actions";
+import {
+  SET_USER,
+  // SET_USER_INFO,
+  SET_TOKEN, SET_MOVIES, SET_FILTER
+} from "../actions/actions";
 
-function user(state = "", action) {
+function user(state = [], action) {
   switch (action.type) {
     case SET_USER:
-      return action.value;
+      return action.value
     default:
       return state;
   }
 }
+
+// function userInfo(state = [], action) {
+//   switch (action.type) {
+//     case SET_USER_INFO:
+//       return action.value
+//     default:
+//       return state;
+//   }
+// }
 
 function token(state = "", action) {
   switch (action.type) {
@@ -50,6 +63,7 @@ function visibilityFilter(state = "", action) {
 
 const moviesApp = combineReducers({
   user,
+  // userInfo,
   token,
   movies,
   visibilityFilter
