@@ -62,7 +62,7 @@ export function UserView(props) {
 
 
   useEffect(() => {
-    axios.get(`https://lht-my-cinema.herokuapp.com/users/${props.user.Username}`, {
+    axios.get(`https://lht-my-cinema.herokuapp.com/users/${user}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -91,7 +91,7 @@ export function UserView(props) {
           <h2>Profile Information</h2> <br />
         </div>
         <div className="user-view-info">
-          <span className="user-info-label">Username: </span><span className="user-info-value">{props.user.Username}</span><span></span> <br />
+          <span className="user-info-label">Username: </span><span className="user-info-value">{user}</span><span></span> <br />
           <span className="user-info-label">Email: </span><span className="user-info-value">{email}</span><span></span> <br />
           <span className="user-info-label">Birthdate: </span><span className="user-info-value">{birthdayClean}</span><span></span> <br /> <br />
         </div>

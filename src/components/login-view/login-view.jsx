@@ -86,6 +86,9 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch(e => {
+        console.log(username)
+        console.log(password)
+
         console.log(e.message)
         console.log("Error Logging In")
         const form = document.querySelector("#loginForm")

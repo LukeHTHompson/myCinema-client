@@ -56,7 +56,7 @@ class MainView extends React.Component {
   }
 
   addFavMovie(movieKey) {
-    axios.post(`https://lht-my-cinema.herokuapp.com/users/${this.props.user}/favorites/${movieKey}`,
+    axios.post(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
       {},
       { headers: { Authorization: `Bearer ${this.props.token}` } }
     )
@@ -70,7 +70,7 @@ class MainView extends React.Component {
   }
 
   removeFavMovie(movieKey) {
-    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${this.props.user}/favorites/${movieKey}`,
+    axios.delete(`https://lht-my-cinema.herokuapp.com/users/${localStorage.getItem("user")}/favorites/${movieKey}`,
       { headers: { Authorization: `Bearer ${this.props.token}` } }
     )
       .then(response => {
@@ -90,31 +90,34 @@ class MainView extends React.Component {
     this.props.setUser({ user: this.state.user });
     // this.props.setUserInfo(authData.user);
     this.props.setToken(authData.token);
+    localStorage.setItem("user", authData.user.Username)
     localStorage.setItem("token", authData.token);
     this.getMovies(authData.token);
   }
 
   onLoggedOut() {
     this.props.setUser("");
-    this.props.setToken("");
+    localStorage.removeItem("token")
     window.open("/", "_self")
   }
 
   render() {
-    let { user, token, movies } = this.props;
+    let { movies } = this.props;
+    let token = localStorage.getItem("token")
+    let user = localStorage.getItem("user")
 
     return (
       <Router>
         <Row className="logout-row justify-content-md-right">
           <Col md={8}>
-            <img className="main-header" src={title} width="740px" alt="MyCinema"></img>
+            <img className="main-header" src={title} alt="MyCinema"></img>
           </Col>
           {token && <Col md={2}>
-            <img className="main-logo" src={logo} width="265px" alt="MyCinema Logo"></img>
+            <img className="main-logo" src={logo} alt="MyCinema Logo"></img>
           </Col>}
 
           {token && <Col className="logout-col" md={2}>
-            <Link to={`/users/${user}`}>User: {user.Username}</Link>
+            <Link to={`/users/${user}`}>User: {user}</Link>
             <br />
             <Button className="logout" onClick={() => { this.onLoggedOut() }}>Logout</Button>
           </Col>}
@@ -182,7 +185,7 @@ class MainView extends React.Component {
                 <div className="user-view-col">
                   <Col md={12}>
                     <UserView
-                    // user={user} token={token}
+                      user={user} token={token}
                     />
                   </Col>
 

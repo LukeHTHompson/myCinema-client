@@ -10,10 +10,22 @@ div.col-md-3 {
 .main-header {
   margin-left: 0;
   margin-right: 0;
+  width: 100%;
+  height: auto;
 }
 
 .main-logo {
   margin-top: 35px;
+  width: 100%;
+  height: auto;
+  display: none;
+  // leaving this out for now
+}
+
+@media only screen and (max-width: 1000px) {
+  .main-logo {
+    display: none;
+  }
 }
 
 .logout {
@@ -21,7 +33,7 @@ div.col-md-3 {
 }
 
 .logout-col {
-  margin-top: 85px;
+  margin: auto;
   text-align: right;
 }
 

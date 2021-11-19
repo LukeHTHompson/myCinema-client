@@ -64,6 +64,13 @@ export function UserViewEdit(props) {
         const loginData = response.data;
         console.log(loginData);
         props.onLoggedIn(loginData);
+        console.log(
+          "UsernameStart: " + usernameStart,
+          "Username: " + username,
+          "Password: " + newPassword1,
+          "Email: " + email,
+          "Birthday: " + birthdayClean
+        )
         if (newPassword1 === newPassword2) {
           axios.put(`https://lht-my-cinema.herokuapp.com/users/${usernameStart}`,
             {
@@ -75,7 +82,7 @@ export function UserViewEdit(props) {
             { headers: { Authorization: `Bearer ${token}` } }
           )
             .then(response => {
-              console.log(response.data);
+              console.log(response);
               console.log("Username: " + { username });
               console.log("Email: " + { email });
               console.log("Birthday: " + { birthday });
@@ -83,7 +90,7 @@ export function UserViewEdit(props) {
               /* send request for auth of new account username/password credentials */
               axios.post("https://lht-my-cinema.herokuapp.com/login", {
                 Username: username,
-                Password: password
+                Password: newPassword1
               })
                 .then(response => {
                   const loginData = response.data;
@@ -113,10 +120,10 @@ export function UserViewEdit(props) {
   return (
     <Form className="user-view-edit">
       {/* className="form-inline" causes the label and value to be side by side, not responsive at moderately low screen widths */}
-      <Form.Group className="form-inline" control_id="form-username">
+      {/* <Form.Group className="form-inline" control_id="form-username">
         <Form.Label className="user-view-edit-label">New Username:</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="form-inline" control_id="form-new-password">
         <Form.Label className="user-view-edit-label">New Password:</Form.Label>
@@ -139,7 +146,7 @@ export function UserViewEdit(props) {
       </Form.Group> <br />
 
       <Form.Group className="form-inline" control_id="form-password">
-        <Form.Label className="user-view-edit-label">Confirm Current Password:</Form.Label>
+        <Form.Label className="user-view-edit-label">Confirm Old Password:</Form.Label>
         <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
 
