@@ -63,18 +63,28 @@ div.col-md-3 {
 .main-header {
   margin-left: 0;
   margin-right: 0;
+  width: 100%;
+  height: auto;
 }
 
 .main-logo {
   margin-top: 35px;
+  width: 100%;
+  height: auto;
+  display: none;
 }
 
+@media only screen and (max-width: 1000px) {
+  .main-logo {
+    display: none;
+  }
+}
 .logout {
   margin: 6px;
 }
 
 .logout-col {
-  margin-top: 85px;
+  margin: auto;
   text-align: right;
 }
 
@@ -102,6 +112,58 @@ label {
   color: red;
   font-size: 9pt;
   vertical-align: middle;
+}
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.card-img-top {
+  max-width: 250px;
+  max-height: 351px;
+  border-bottom: 1px solid grey;
+}
+
+.movie-card-col {
+  padding: 0;
+}
+
+.fav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  left: 0;
+}
+.fav-movie :hover {
+  background-color: darkkhaki;
+}
+
+span.fav-movie, span.unfav-movie {
+  width: 100%;
+}
+
+button.fav-movie, button.unfav-movie {
+  width: 100%;
+}
+
+.unfav-movie {
+  text-align: center;
+  min-width: 26px;
+  min-height: 26px;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.more-info {
+  position: absolute;
+  left: 8px;
+  bottom: 4px;
 }
 .director-view-back {
   text-align: center;
@@ -169,7 +231,7 @@ ul {
   margin: 15px;
   padding: 10px;
   text-align: center;
-  width: 66%;
+  width: 100%;
   align-content: center;
 }
 
@@ -271,57 +333,9 @@ input.form-control {
   width: 100%;
   text-align: center;
 }
-.card {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 100%;
-}
 
-.card-img-top {
-  max-width: 250px;
-  max-height: 351px;
-  border-bottom: 1px solid grey;
-}
-
-.movie-card-col {
-  padding: 0;
-}
-
-.fav-movie {
-  text-align: center;
-  min-width: 26px;
-  min-height: 26px;
-  top: 0;
-  left: 0;
-}
-.fav-movie :hover {
-  background-color: darkkhaki;
-}
-
-span.fav-movie, span.unfav-movie {
-  width: 100%;
-}
-
-button.fav-movie, button.unfav-movie {
-  width: 100%;
-}
-
-.unfav-movie {
-  text-align: center;
-  min-width: 26px;
-  min-height: 26px;
-  top: 0;
-  right: 0;
-}
-
-.hide {
+.user-view-fav-movie .fav-movie {
   display: none;
-}
-
-.more-info {
-  position: absolute;
-  left: 8px;
-  bottom: 4px;
 }
 .my-flix {
   color: steelblue;
