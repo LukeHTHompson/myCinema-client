@@ -7,7 +7,7 @@ import {
   SET_TOKEN, SET_MOVIES, SET_FILTER
 } from "../actions/actions";
 
-function user(state = [], action) {
+function user(state = {}, action) {
   switch (action.type) {
     case SET_USER:
       return action.value

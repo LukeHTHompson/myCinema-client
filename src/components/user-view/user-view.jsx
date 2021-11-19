@@ -145,13 +145,32 @@ UserView.propTypes = {
   birthday: PropTypes.any
 };
 
-const mapStateToProps = state => {
-  return {
-    user: state.user,
-    token: state.token,
-    movies: state.movies,
-    visibilityFilter: state.visibilityFilter
-  }
-}
+// let mapStateToProps = (state) => {
+//   console.log(state)
+//   return {
+//     user: state.user.user,
+//     token: state.token,
+//     movies: state.movies,
+//     visibilityFilter: state.visibilityFilter
+//   }
+// }
 
-export default connect(mapStateToProps, { setUser, setToken, setMovies })(UserView);
+// export default connect(mapStateToProps
+//   // , { setUser, setToken, setMovies }
+// )(UserView);
+
+// let mapStateToProps = state => {
+//   console.log(state)
+//   return {
+//     user: state.user.user,
+//     // userInfo: state.user,
+//     token: state.token,
+//     movies: state.movies
+//   }
+// }
+
+// export default connect(mapStateToProps, {
+//   setUser,
+//   // setUserInfo,
+//   setToken, setMovies
+// })(UserView);
