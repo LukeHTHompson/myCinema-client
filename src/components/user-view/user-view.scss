@@ -1,0 +1,64 @@
+.user-view-col {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  align-content: center;
+}
+
+div.user-view-info {
+  max-width: 50%;
+  margin: auto;
+}
+
+.user-info-label {
+float: left;
+}
+
+.user-info-value {
+float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-view-edit-button {
+  width: 200px;
+}
+
+.user-view-delete-button {
+  width: 200px;
+}
+
+.user-home {
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.user-view-fav-movie {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-close {
+  padding: .5rem;
+  margin: -.5rem -.5rem -.5rem auto;
+  color: #000;
+  text-decoration: none;
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+  border: 0;
+  border-radius: .25em;
+  opacity: .5;
+}
+
+.btn-close:hover {
+  opacity: .75;
+}

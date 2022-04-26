@@ -17,13 +17,20 @@
   "homepage": "https://github.com/LukeHTHompson/myCinema-client#readme",
   "dependencies": {
     "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
-    "react-dom": "^17.0.2"
+    "react-datepicker": "^4.2.1",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
     "@parcel/transformer-sass": "^2.0.0-rc.0"
   }
 }

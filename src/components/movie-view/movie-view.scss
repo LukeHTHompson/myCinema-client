@@ -3,3 +3,45 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+.movie-view-info-top {
+  text-align: center;
+}
+
+.movie-title {
+  font-weight:700;
+  font-size: 24pt;
+}
+
+button.dir-link, button.genre-link {
+  padding: 0px;
+}
+
+.movie-view-poster{
+  border: 2px solid grey;
+  max-height: 500px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.movie-view-info-bottom {
+  text-align:center;
+}
+
+.movie-view-back {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.movie-home {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.movie-view {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  padding: 10px;
+}
+

@@ -1,3 +1,64 @@
+$inside: #08022A;
+$outside: #3A1247;
+$splash: #680515;
+$text: #FFD501;
+
 div.col-md-3 {
   padding: 15px;
+}
+
+.main-header {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  height: auto;
+}
+
+.main-logo {
+  margin-top: 35px;
+  width: 100%;
+  height: auto;
+  display: none;
+  // leaving this out for now
+}
+
+@media only screen and (max-width: 1000px) {
+  .main-logo {
+    display: none;
+  }
+}
+
+.logout {
+  margin: 6px;
+}
+
+.logout-col {
+  margin: auto;
+  text-align: right;
+}
+
+label {
+  color: $text;
+}
+
+.container {
+  overflow: hidden;
+  background-color: $inside;
+  border-radius: 20px;
+  border: 5px solid $splash;
+}
+
+.app-container {
+  background-color: $outside;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: red;
+  font-size: 9pt;
+  vertical-align: middle;
 }
